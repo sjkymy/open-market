@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "../../components/card/Card";
 import FailLoadData from "../../components/failLoadData/FailLoadData";
+import { ProductMain, ProductList } from "./Product.style";
 
 export default function Product() {
   const [items, setItems] = useState([])
@@ -27,13 +28,13 @@ export default function Product() {
   return (
   (error !== null) ? <FailLoadData/> :
   !isloaded ? <div>로딩중...</div> :
-      (<main>
+      (<ProductMain>
         <>
-          <ul>
+          <ProductList>
             {items.map((item) => <Card key={item.product_id} {...item}/>)}
-          </ul>
+          </ProductList>
         </>
-      </main>)
+      </ProductMain>)
   )
 
   // if (error) {

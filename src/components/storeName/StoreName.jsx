@@ -1,7 +1,8 @@
 import React from 'react'
+import {SName} from "./storeName.style"
 
 export default function StoreName({store_name}) {
   return (
-    <div>{store_name}</div>
+    <SName>{store_name}</SName>
   )
 }

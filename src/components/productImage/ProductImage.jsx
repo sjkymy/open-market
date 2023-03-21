@@ -1,7 +1,8 @@
 import React from 'react'
+import { Img } from "./productImage.style"
 
-export default function ProductImage({image}) {
+export default function ProductImage({image, product_name}) {
   return (
-    <img src={image} alt="상품" />
+    <Img src={image} alt={product_name} />
   )
 }
