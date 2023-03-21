@@ -1,7 +1,8 @@
 import React from 'react'
+import { PName } from "./productName.style"
 
 export default function ProductName({product_name}) {
   return (
-    <div>{product_name}</div>
+    <PName>{product_name}</PName>
   )
 }
