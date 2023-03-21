@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
 const Login = lazy(() => import('../pages/account/login/Login'));
 const Signin = lazy(() => import('../pages/account/signin/Signin'));
-const Product = lazy(() => import("../pages/product/Product"))
+const Product = lazy(() => import("../pages/home/Home"))
 
 export default function Router() {
   return (
