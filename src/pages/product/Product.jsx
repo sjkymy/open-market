@@ -8,7 +8,6 @@ export default function Product() {
   const [items, setItems] = useState([])
   const [isloaded, setIsloaded] = useState(false);
   const [error, setError] = useState(null)
-    
 
   useEffect(() => {
     const getData = async () => {
