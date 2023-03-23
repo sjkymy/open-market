@@ -5,7 +5,6 @@ const Container = styled.div `
     width: 87%;
     max-width: 500px;
     margin: 100px auto;
-    border: 1px solid black;
 `
 
 const LoginTit = styled.h2 `
