@@ -5,12 +5,12 @@ const Inp = styled.input`
     background-color: none;
     border: none;
     padding: 10px 0;
-    border-bottom: 1px solid #DBDBDB;
+    border-bottom: 1px solid #cdcbcb;
     margin: 20px 0;
     outline: none;
 
     ::placeholder{
-        color: #DBDBDB;
+        color: #cdcbcb;
     };
 
     :focus {
