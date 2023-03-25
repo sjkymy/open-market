@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
-const Login = lazy(() => import('../pages/account/login/Login'));
+const Login = lazy(() => import('../pages/account/login/LoginMain'));
 const Join = lazy(() => import('../pages/account/join/Join'));
 const Home = lazy(() => import("../pages/home/Home"));
 // const Product = lazy(() => import("../pages/product/Product"))
