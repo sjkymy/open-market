@@ -1,12 +1,11 @@
 import styled from "styled-components";
 
 const Inp = styled.input`
-    font-size: 16px;
     background-color: none;
     border: none;
     padding: 10px 0 10px 4px;
     border-bottom: 1px solid #cdcbcb;
-    margin: 20px 0;
+    margin: 10px 0;
     outline: none;
 
     ::placeholder{

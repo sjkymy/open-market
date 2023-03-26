@@ -6,8 +6,8 @@ export default function Login() {
   const [currentTab, setCurrentTab] = useState(0);
 
   const menuArr = [
-    { id: 0, name: '구매회원 로그인', content: <LoginForm loginType="BUYER"/> },
-    { id: 1, name: '판매회원 로그인', content: <LoginForm loginType="SELLER"/> }
+    { id: 0, name: '구매회원 로그인', content: <LoginForm loginType="BUYER" /> },
+    { id: 1, name: '판매회원 로그인', content: <LoginForm loginType="SELLER" /> }
   ];
 
   const handleMenuSelect = (index) => {
