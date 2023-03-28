@@ -1,11 +1,11 @@
 import React from 'react'
 import JoinIdPw from './joinForm/JoinIdPw';
 import JoinNamePhone from './joinForm/JoinNamePhone';
-// import axios from 'axios';
 import { useState } from 'react';
 import axios from 'axios';
 import { Button } from '../../../components/button/Button';
 import { Form } from './join.style';
+// import CheckId from './joinForm/CheckId';
 
 export default function Join() {
   const [idval, setIdval] = useState("");
@@ -48,8 +48,7 @@ export default function Join() {
     };
     JoinData();
   };
-
-  console.log(phoneVal);
+  
   return (
     <>
       <h2>회원가입</h2>
@@ -67,8 +66,7 @@ export default function Join() {
           onClick={handleJoin}
         > 가입하기
         </Button>
-      </Form>
-      
+      </Form>      
     </>
   )
 }

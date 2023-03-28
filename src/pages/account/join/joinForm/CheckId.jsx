@@ -1,7 +1,7 @@
-import React from 'react'
+import { Button } from '../../../../components/button/Button'
 
 export default function CheckId() {
   return (
-    <div>CheckId</div>
+    <Button className="small">중복확인</Button>
   )
 }

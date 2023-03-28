@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios"
 import { Inp } from "../../../../components/userInput/Inp";
 import { Button } from "../../../../components/button/Button"
-import { Form, Warning } from "./LoginForm.style";
+import { Form, InformMsg } from "../../../../components/style/informMsg.style";
 
 export default function LoginForm(props) {
   const navigate = useNavigate()
@@ -61,9 +61,9 @@ export default function LoginForm(props) {
           value={pwVal}
           onChange={handleOnChange}
         />
-        <Warning className={errorMsg ? "errorOpen" : null}>
+        <InformMsg className={errorMsg ? "errorOpen" : null}>
           {errorMsg}
-        </Warning>
+        </InformMsg>
         <Button
           type="button"
           className="large"
