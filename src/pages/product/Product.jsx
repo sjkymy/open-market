@@ -12,7 +12,7 @@ export default function Product() {
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await axios.get("https://openmarket.weniv.co.kr/products");
+        const response = await axios.get("https://openmarket.weniv.co.kr/products/");
         const productData = response.data.results;
         setItems(productData);
         setIsloaded(true)

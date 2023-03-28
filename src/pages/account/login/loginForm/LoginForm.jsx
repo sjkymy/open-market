@@ -24,7 +24,7 @@ export default function LoginForm(props) {
   }, [pwVal]);
 
   const handleLogin = (e) => {
-    const loginData = async() => {
+    const LoginData = async() => {
       const loginData = {
         "username": idVal,
         "password": pwVal,
@@ -33,7 +33,7 @@ export default function LoginForm(props) {
       try {
         const response = await axios.post("https://openmarket.weniv.co.kr/accounts/login/", loginData
         );
-        console.log("로그인 성공");
+        console.log(response);
         const userToken = response.data.token;
         localStorage.setItem("Authorization", "JWT "+ userToken)
       } catch (error) {
@@ -43,7 +43,7 @@ export default function LoginForm(props) {
         }
       }
     }
-    loginData()
+    LoginData()
   };
 
   return (
