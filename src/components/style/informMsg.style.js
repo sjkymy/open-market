@@ -9,9 +9,8 @@ const Form = styled.form `
 
 const InformMsg = styled.strong `
     display: none;
-    margin-top: 6px;
     font-size: 14px;
-    font-weight: 400;
+    font-weight: bold;
     line-height: 14px;
     color: #eb5757;
     &.errorOpen {

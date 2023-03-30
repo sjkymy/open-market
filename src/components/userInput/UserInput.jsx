@@ -4,7 +4,7 @@ const InpLabel = styled.label`
     color: #767676;
     font-weight: 500;
     display: block;
-    margin-top: 20px;
+    margin-top: 30px;
     @media screen and (max-width: 768px) {
         font-size: 14px;
     };

@@ -19,6 +19,7 @@ export default function JoinNamePhone({value, handleOnChange}) {
         id="joinPhone"
         value={value.phoneVal}
         onChange={handleOnChange}
+        placeholder="하이픈(-) 없이 숫자만 입력하세요."
         required
         />
     </UserInput>

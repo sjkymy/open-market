@@ -4,12 +4,10 @@ import UserInput from '../../../../components/userInput/UserInput';
 import { Inp } from '../../../../components/userInput/Inp';
 import { Button } from '../../../../components/button/Button';
 import { InformMsg } from '../../../../components/style/informMsg.style';
-// import CheckId from './CheckId';
 
 export default function JoinIdPw({value, handleOnChange}) {
   const [btnDisable, setBtnDisable] = useState(true);
   const [className, setClassName] = useState("");
-  // const [okMsg, setOkMsg] = useState("");
   const [informMsg, setInformMsg] = useState(null)
 
   useEffect(() => {
@@ -48,7 +46,7 @@ export default function JoinIdPw({value, handleOnChange}) {
           id="joinId"
           value={value.idval}
           onChange={handleOnChange}
-          placeholder="아이디는 영문자+숫자 조합으로 4~12자리를 입력해야합니다!"
+          placeholder="영문자+숫자 조합으로 4~12자리를 입력하세요."
           required
         />
         <InformMsg className={className}>
@@ -69,7 +67,7 @@ export default function JoinIdPw({value, handleOnChange}) {
           id="joinPw"
           value={value.pwVal}
           onChange={handleOnChange}
-          placeholder="비밀번호는 8자 이상이어야 합니다."
+          placeholder="영소문자+숫자 조합으로 8~12자리를 입력하세요."
           required
         />
       </UserInput>

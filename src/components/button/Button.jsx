@@ -21,6 +21,7 @@ const Button = styled.button`
         padding: 8px 40px;
         border-radius: 30px;
         background-color: #767676;
+        margin-top: 10px;
         @media screen and (max-width: 768px) {
             padding: 8px 24px;
         };
