@@ -12,8 +12,8 @@ const Button = styled.button`
 
     &.ms {
         font-size: 14px;
-        padding: 7px 32px;
-        border-radius: 10px;
+        padding: 7px 20px;
+        border-radius: 20px;
     };
 
     &.medium {
