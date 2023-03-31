@@ -40,7 +40,7 @@ export default function JoinIdPw({value, handleOnChange}) {
 
   return (
     <>
-      <UserInput className="check" inputId="joinId" label="아이디">
+      <UserInput inputId="joinId" label="아이디">
         <Inp 
           type="text"
           id="joinId"

@@ -1,11 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import JoinIdPw from './joinForm/JoinIdPw';
-import JoinNamePhone from './joinForm/JoinNamePhone';
-import { useState, useEffect } from 'react';
+import JoinIdPw from './JoinIdPw';
+import JoinNamePhone from './JoinNamePhone';
+import { useState } from 'react';
 import axios from 'axios';
-import { Button } from '../../../components/button/Button';
-import { Form } from '../../../components/style/informMsg.style';
-import { InformMsg } from '../../../components/style/informMsg.style';
+import { Button } from '../../../../components/button/Button';
+import { Form, InformMsg } from '../../../../components/style/informMsg.style';
 
 export default function Join() {
   const navigate = useNavigate()
@@ -50,6 +49,8 @@ export default function Join() {
       } catch (error) {
         console.log(error);
         setClassName("errorOpen")
+
+        Object.values(error.config.data).includes("") && alert("빈 칸을 모두 입력해주세요.");
 
         const joinError = error.response.data;
         joinError.hasOwnProperty('phone_number') && setPhoneError("해당 사용자 전화번호는 이미 존재합니다.");

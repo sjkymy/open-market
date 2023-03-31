@@ -13,9 +13,6 @@ const InpLabel = styled.label`
 const Cont = styled.div`
     display: flex;
     flex-direction: column;
-    /* &.check {
-        flex-direction: row;
-    } */
     @media screen and (max-width: 768px){
         margin-top: 0px;
     };
