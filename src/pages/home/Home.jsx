@@ -1,10 +1,11 @@
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Product from '../product/Product'
+import MenuBar from '../../components/menuBar/MenuBar'
 
 export default function Home() {
   return (
     <>
-        <Link to="/account/login">로그인</Link>
+        <MenuBar />
         <Product />
     </>
   )

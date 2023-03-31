@@ -7,6 +7,10 @@ const ImgProduct = styled.div `
     border: 1px solid #C4C4C4;
     border-radius: 10px;
     overflow: hidden;
+    @media screen and (max-width: 768px) {
+        width: 90%;
+        height: 90%;
+    }
 `
 
 const CardList = styled.li `

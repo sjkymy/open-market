@@ -35,7 +35,8 @@ export default function LoginForm(props) {
         );
         console.log(response);
         const userToken = response.data.token;
-        localStorage.setItem("Authorization", "JWT "+ userToken)
+        localStorage.setItem("Authorization", "JWT "+ userToken);
+        navigate("/");
       } catch (error) {
         console.log(error);
         if (error.response.status === 401) {

@@ -35,21 +35,4 @@ export default function Product() {
         </>
       </ProductMain>)
   )
-
-  // if (error) {
-  //   console.log(error)
-  //   return <FailLoadData/>
-  // } else if (!isloaded) {
-  //   return <div>로딩중...</div>
-  // } else {
-  //   return (
-  //     <main>
-  //       <>
-  //         <ul>
-  //           {items.map((item) => <Card key={item.product_id} {...item}/>)}
-  //         </ul>
-  //       </>
-  //     </main>
-  //   )
-  // }
 }
