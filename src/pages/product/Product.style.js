@@ -3,7 +3,7 @@ import styled from "styled-components";
 const ProductMain = styled.main `
     display: flex;
     justify-content: center;
-    margin-top: 100px;
+    margin-top: 150px;
     padding-bottom: 156px;
 `
 

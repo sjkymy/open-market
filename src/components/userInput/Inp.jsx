@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import searchImg from "../../assets/images/search.png"
 
 const Inp = styled.input`
     background-color: none;
@@ -16,13 +17,14 @@ const Inp = styled.input`
     };
 
     &.search {
-        position: relative;
         border: 2px solid #14ae5c;
         border-radius: 20px;
-        padding: 10px 15px;
-    }
-    &.logout{
-
+        padding: 13px 237px 12px 22px;
+        margin: 0 30px;
+        background: url(${searchImg}) no-repeat 95% 50% / 6%;
+        @media screen and (max-width: 768px) {
+            display: none;
+        };
     }
 `;
 

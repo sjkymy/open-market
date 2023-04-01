@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 const Login = lazy(() => import('../pages/account/login/LoginMain'));
 const Join = lazy(() => import('../pages/account/join/JoinMain'));
 const Home = lazy(() => import("../pages/home/Home"));
+const Cart = lazy(() => import("../pages/cart/Cart"));
 
 export default function Router() {
   return (
@@ -15,6 +16,7 @@ export default function Router() {
               <Route path="login/" element = {<Login />}/>
               <Route path="join/" element = {<Join />}/>
             </Route>
+            <Route path="/cart" element = {<Cart />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
