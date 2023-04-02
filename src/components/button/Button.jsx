@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-    background-color: #14ae5c;
+    background-color: var(--color-primary);
     color: #FFFFFF;
     font-family: "Pretendard";
     &.small {

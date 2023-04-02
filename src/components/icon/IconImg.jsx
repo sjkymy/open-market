@@ -6,9 +6,6 @@ import userIcon from "../../assets/images/icon-user.png"
 import {IconDiv, ImgIcon, IconName} from "./iconImg.style"
 
 export default function IconImg() {
-
-    
-
     let isAuthorized = localStorage.getItem("Authorization");
 
     const handleLogout = () => {

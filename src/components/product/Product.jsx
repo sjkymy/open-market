@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Card from "../../components/card/Card";
-import FailLoadData from "../../components/failLoadData/FailLoadData";
+import Card from "../card/Card";
+import FailLoadData from "../failLoadData/FailLoadData";
 import { ProductMain, ProductList } from "./Product.style";
 
 export default function Product() {

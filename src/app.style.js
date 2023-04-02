@@ -4,7 +4,7 @@ import reset from "styled-reset";
 const GlobalStyles = createGlobalStyle`
     ${reset}
     :root {
-        --color-primary: #4583A3;
+        --color-primary: #14ae5c;
         --color-text: #3F3F46;
         font-family: "Pretendard";
         font-size: 16px;
