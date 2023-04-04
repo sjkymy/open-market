@@ -33,7 +33,6 @@ export default function LoginForm(props) {
       try {
         const response = await axios.post("https://openmarket.weniv.co.kr/accounts/login/", loginData
         );
-        console.log(response);
         const userToken = response.data.token;
         localStorage.setItem("Authorization", "JWT "+ userToken);
         navigate("/");

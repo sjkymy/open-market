@@ -1,4 +1,3 @@
-import React from 'react'
 import { Img } from "./productImage.style"
 
 export default function ProductImage({image, product_name}) {

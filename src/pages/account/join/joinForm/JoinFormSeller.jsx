@@ -66,9 +66,7 @@ export default function JoinFormSeller() {
                 const idRegExp = /^(?=.*[a-z])(?=.*[0-9]).{8,12}$/;
                 !idRegExp.test(pwVal) && setInformMsg("영어 소문자와 숫자를 조합하여 8~12자리로 만들어주세요.");
                 (pwVal !== pwCheckVal) && setInformMsg("비밀번호가 일치하지 않습니다.");
-
-
-            }
+              }
         };
         JoinData();
     }

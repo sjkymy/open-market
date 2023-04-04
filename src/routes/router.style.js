@@ -12,19 +12,11 @@ const Header = styled.header `
     background: #fff;
 `
 
-const MenuNav = styled.nav `
+const Main = styled.main `
     display: flex;
     justify-content: center;
-    align-items: center;
-    width: 1080px;
-    margin: 0 auto;
+    margin-top: 150px;
+    padding-bottom: 156px;
 `
 
-const Logo = styled.div `
-    display: flex;
-    width: 124px;
-    height: 38px;
-    margin-right: auto;
-`
-
-export { Header, MenuNav, Logo }
+export { Header, Main}

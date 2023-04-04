@@ -11,18 +11,18 @@ export default function Router() {
   return (
     <BrowserRouter>
     <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-            <Route path="/" element = {<Home />}/>
-            <Route path="/account/" element = {<Outlet />}>
-              <Route path="login/" element = {<Login />}/>
-              <Route path="join/" element = {<Join />}/>
-            </Route>
-            <Route path="/product/" element = {<Outlet />}>
-              <Route path=":product_id" element = {<ProductDetail />}/>
-            </Route>
-            <Route path="/cart" element = {<Cart />} />
-        </Routes>
-      </Suspense>
+      <Routes>
+        <Route path="/" element = {<Home />}/>
+        <Route path="/account/" element = {<Outlet />}>
+          <Route path="login/" element = {<Login />}/>
+          <Route path="join/" element = {<Join />}/>
+        </Route>
+        <Route path="/products/" element = {<Outlet />}>
+          <Route path=":product_id" element = {<ProductDetail />}/>
+        </Route>
+        <Route path="/cart" element = {<Cart />} />
+      </Routes>
+    </Suspense>
     </BrowserRouter>
   )
 }
