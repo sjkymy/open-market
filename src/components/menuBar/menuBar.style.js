@@ -16,7 +16,7 @@ const MenuNav = styled.nav `
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1080px;
+    width: 1280px;
     margin: 0 auto;
 `
 

@@ -5,11 +5,12 @@ import MenuBar from "../../components/menuBar/MenuBar";
 import { Img } from "../../components/productImage/productImage.style";
 import { MainEl, ProductInfoSection, ProductImage, ProductOeder, StoreName, ProductName, ProductPrice } from "./productDetail.style";
 import Amount from "./amount/Amount";
-import TotalPrice from "./totalPrice/TotalPrice";
+// import TotalPrice from "./totalPrice/TotalPrice";
 
 export default function ProductDetail() {
   const [product, setProduct] = useState([]);
   let {product_id} = useParams();
+
   useEffect(() => {
     const detailData = async () => {
         try {
@@ -29,7 +30,7 @@ export default function ProductDetail() {
       <MainEl>
         <ProductInfoSection>
           <ProductImage>
-            <Img src={product.image} alt="" />
+            <Img src={product.image} alt={product.product_name} />
           </ProductImage>
           <ProductOeder>
             <StoreName>{product.store_name}</StoreName>
@@ -40,7 +41,7 @@ export default function ProductDetail() {
               {product.price?.toLocaleString()}원
             </ProductPrice>
             <Amount/>
-            <TotalPrice/>
+            {/* <TotalPrice/> */}
           </ProductOeder>
         </ProductInfoSection>
       </MainEl>

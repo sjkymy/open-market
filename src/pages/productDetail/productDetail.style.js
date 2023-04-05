@@ -1,13 +1,14 @@
 import styled from "styled-components";
 
 const MainEl = styled.main `
-    width: 1080px;
+    width: 1280px;
     margin: 150px auto 0;
     padding-bottom: 156px;
 `
 
 const ProductInfoSection = styled.section `
     display: flex;
+    width: 100%;
 `
 
 const ProductImage = styled.div `
@@ -17,6 +18,7 @@ const ProductImage = styled.div `
 
 const ProductOeder = styled.div `
     margin-left: 50px;
+    width: 100%;
 `
 
 const StoreName = styled.p `
@@ -30,6 +32,7 @@ const ProductName = styled.h3 `
 
 const ProductPrice = styled.p `
     font-size: 36px;
+    font-weight: bold;
     margin-top: 20px;
 `
 
