@@ -5,6 +5,7 @@ import MenuBar from "../../components/menuBar/MenuBar";
 import { Img } from "../../components/productImage/productImage.style";
 import { MainEl, ProductInfoSection, ProductImage, ProductOeder, StoreName, ProductName, ProductPrice } from "./productDetail.style";
 import Amount from "./amount/Amount";
+import BuyCart from "./btnBuyCart/BuyCart";
 // import TotalPrice from "./totalPrice/TotalPrice";
 
 export default function ProductDetail() {
@@ -41,6 +42,7 @@ export default function ProductDetail() {
               {product.price?.toLocaleString()}원
             </ProductPrice>
             <Amount price={product.price}/>
+            <BuyCart/>
           </ProductOeder>
         </ProductInfoSection>
       </MainEl>

@@ -4,18 +4,15 @@ const Button = styled.button`
     background-color: var(--color-primary);
     color: #FFFFFF;
     font-family: "Pretendard";
-    &.small {
-        font-size: 12px;
-        padding: 7px 11px;
-        border-radius: 10px;
-    };
 
+    // 로그아웃 버튼에 쓰임
     &.ms {
-        font-size: 14px;
-        padding: 7px 20px;
-        border-radius: 20px;
+        font-size: 18px;
+        padding: 10px 30px;
+        border-radius: 5px;
     };
 
+    // 중복확인
     &.medium {
         font-size: 14px;
         padding: 8px 40px;
@@ -32,19 +29,23 @@ const Button = styled.button`
     
     &.large {
         font-size: 18px;
-        padding: 12px 35px;
-        border-radius: 10px;
-        margin-top: 30px;
-
+        padding: 19px 172px;
+        border-radius: 5px;
         @media screen and (max-width: 768px) {
             font-size: 14px;
             height: 44px;
         };
     };
-
+    
     &.max {
         width: 100%;
     };
+
+    &.dark {
+        font-size: 18px;
+        padding: 19px 66px;
+        background-color: var(--color-dark);
+    }
     
     /* &.small, &.medium {
         background-color: ${(props) => (props.active ? "var(--color-primary)" : '#fff')};

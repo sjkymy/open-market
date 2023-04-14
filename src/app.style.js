@@ -6,6 +6,7 @@ const GlobalStyles = createGlobalStyle`
     :root {
         --color-primary: #21BF48;
         --color-text: #3F3F46;
+        --color-dark: #767676;
         font-family: "Pretendard";
         font-size: 16px;
         font-weight: 400;
