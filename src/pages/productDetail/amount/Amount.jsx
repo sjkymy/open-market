@@ -31,16 +31,16 @@ const AmountBtn = styled.button `
     border: 1px solid #C4C4C4;
 `
 export const AmountContext = createContext(null);
-export default function Amount() {
+export default function Amount({price}) {
   
     const [count, setCount] = useState(0);
     const [btnDisable, setBtnDisable] = useState(true);
 
     const handleChangeAmount = (type) => {
         if (type === 'increment') {
-          setCount(count + 1);
+          setCount((prev) => prev + 1);
         } else if (type === 'decrement') {
-          setCount(count - 1);
+          setCount((prev) => prev - 1);
         }
     };
 
@@ -64,7 +64,7 @@ export default function Amount() {
                 >+
                 </AmountBtn>
             </AmountDiv>
-            <AmountContext.Provider value={{count}}>
+            <AmountContext.Provider value={{count, price}}>
                 <TotalPrice />
             </AmountContext.Provider>
         </>

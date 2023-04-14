@@ -40,8 +40,7 @@ export default function ProductDetail() {
             <ProductPrice>
               {product.price?.toLocaleString()}원
             </ProductPrice>
-            <Amount/>
-            {/* <TotalPrice/> */}
+            <Amount price={product.price}/>
           </ProductOeder>
         </ProductInfoSection>
       </MainEl>
