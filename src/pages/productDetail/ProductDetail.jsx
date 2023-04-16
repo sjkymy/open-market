@@ -5,8 +5,7 @@ import MenuBar from "../../components/menuBar/MenuBar";
 import { Img } from "../../components/productImage/productImage.style";
 import { MainEl, ProductInfoSection, ProductImage, ProductOeder, StoreName, ProductName, ProductPrice } from "./productDetail.style";
 import Amount from "./amount/Amount";
-import BuyCart from "./btnBuyCart/BuyCart";
-// import TotalPrice from "./totalPrice/TotalPrice";
+// import BuyCart from "./btnBuyCart/BuyCart";
 
 export default function ProductDetail() {
   const [product, setProduct] = useState([]);
@@ -16,7 +15,6 @@ export default function ProductDetail() {
     const detailData = async () => {
         try {
             const response = await axios.get(`https://openmarket.weniv.co.kr/products/${product_id}/`);
-            console.log(response.data);
             setProduct(response.data)
         } catch (error) {
             console.log(error);
@@ -41,8 +39,9 @@ export default function ProductDetail() {
             <ProductPrice>
               {product.price?.toLocaleString()}원
             </ProductPrice>
-            <Amount price={product.price}/>
-            <BuyCart/>
+            <Amount 
+              {...product}
+            />
           </ProductOeder>
         </ProductInfoSection>
       </MainEl>

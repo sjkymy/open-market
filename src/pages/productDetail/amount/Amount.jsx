@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState, useEffect, createContext } from "react";
 import TotalPrice from "../totalPrice/TotalPrice";
+import BuyCartBtn from "../btnBuyCart/BuyCartBtn";
 
 const AmountDiv = styled.div `
     height: 110px;
@@ -31,7 +32,7 @@ const AmountBtn = styled.button `
     border: 1px solid #C4C4C4;
 `
 export const AmountContext = createContext(null);
-export default function Amount({price}) {
+export default function Amount({...product}) {
   
     const [count, setCount] = useState(0);
     const [btnDisable, setBtnDisable] = useState(true);
@@ -64,8 +65,9 @@ export default function Amount({price}) {
                 >+
                 </AmountBtn>
             </AmountDiv>
-            <AmountContext.Provider value={{count, price}}>
+            <AmountContext.Provider value={{count, ...product}}>
                 <TotalPrice />
+                <BuyCartBtn/>
             </AmountContext.Provider>
         </>
     )

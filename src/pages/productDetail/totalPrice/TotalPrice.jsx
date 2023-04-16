@@ -3,8 +3,7 @@ import { AmountContext } from "../amount/Amount";
 import {TotalDiv, TotalTxt, TotalAmountDiv, TotalAmountTxt, TotalPriceTxt } from "./totalPrice.style"
 
 export default function TotalPrice() {
-    const { count, price } = useContext(AmountContext);
-
+    const { count, ...product } = useContext(AmountContext);
   return (
     <TotalDiv>
         <TotalTxt>총 상품 금액</TotalTxt>
@@ -13,7 +12,7 @@ export default function TotalPrice() {
                 총 수량 <span>{count}</span>개
             </TotalAmountTxt>
             <TotalPriceTxt>
-                {(count * price)?.toLocaleString()}원
+                {(count * product.price)?.toLocaleString()}원
             </TotalPriceTxt>
         </TotalAmountDiv>
     </TotalDiv>
