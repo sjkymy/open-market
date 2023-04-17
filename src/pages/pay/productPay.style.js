@@ -16,8 +16,8 @@ const TotalPriceTxt = styled.p `
     font-size: 18px;
     font-weight: bold;
     line-height: 23px;
-    margin-top: 35px;
-    float: right;
+    margin: 35px 0 98px;
+    text-align: right;
     span {
         font-size: 24px;
         line-height: 30px;
