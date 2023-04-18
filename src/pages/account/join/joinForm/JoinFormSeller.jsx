@@ -38,13 +38,13 @@ export default function JoinFormSeller() {
         e.preventDefault();
         const JoinData = async () => {
             const joinData = {
-                "username": idval,
-                "password": pwVal,
-                "password2": pwCheckVal,
-                "phone_number": phoneVal,
-                "name": nameVal,
-                "company_registration_number": companyVal,
-		        "store_name": storeVal,
+              "username": idval,
+              "password": pwVal,
+              "password2": pwCheckVal,
+              "phone_number": phoneVal,
+              "name": nameVal,
+              "company_registration_number": companyVal,
+		          "store_name": storeVal,
             };
             try {
               const response = await axios.post(

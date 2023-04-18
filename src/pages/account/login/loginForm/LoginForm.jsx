@@ -6,12 +6,15 @@ import { Button } from "../../../../components/button/Button"
 import { Form, InformMsg } from "../../../../components/style/informMsg.style";
 
 export default function LoginForm(props) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  // const location = useLocation();
   const [idVal, setIDVal] = useState("");
   const [pwVal, setPwVal] = useState("");
   const [btnDisable, setBtnDisable] = useState(true)
   const [errorMsg, setErrorMsg] = useState(null)
   const loginType = props.loginType;
+
+  
   
   const handleOnChange = (e) => {
     (e.target.type === "password") ?
@@ -35,7 +38,15 @@ export default function LoginForm(props) {
         );
         const userToken = response.data.token;
         localStorage.setItem("Authorization", "JWT "+ userToken);
-        navigate("/");
+        
+        // 로그인 이후 직전 페이지로 이동
+        const prevPath = localStorage.getItem('prevPath');
+        if (prevPath) {
+          navigate(prevPath);
+          localStorage.removeItem("prevPath");
+        } else {
+          navigate('/');
+        };
       } catch (error) {
         console.log(error);
         if (error.response.status === 401) {
