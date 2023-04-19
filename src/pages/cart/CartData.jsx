@@ -6,12 +6,16 @@ export default function GetCartData() {
 
   useEffect(() => {
     const getData = async () => {
-      const url = "https://openmarket.weniv.co.kr/accounts/cart/";
+      const url = "https://openmarket.weniv.co.kr/cart/";
       const userToken = localStorage.getItem("Authorization");
       try {
         const response = await axios.get(
           url, 
-          {"Authroization": userToken}
+          {
+            headers: {
+              "Authorization": userToken
+            }
+          }
         );
         setCartData(response);
       } catch (error) {

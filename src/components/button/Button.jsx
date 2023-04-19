@@ -37,10 +37,6 @@ const Button = styled.button`
     }
   }
 
-  &.max {
-    width: 100%;
-  }
-
   &.dark {
     font-size: 18px;
     padding: 19px 66px;
@@ -54,6 +50,19 @@ const Button = styled.button`
     font-size: 24px;
     line-height: 30px;
     margin: 30px 0 34px;
+  }
+
+  &.yes {
+    background: var(--color-primary);
+    border-radius: 5px;
+    width: 100px;
+    height: 40px;
+    line-height: 20px;
+  }
+  &.no {
+    background: #FFFFFF;
+    color: #767676;
+    border: 1px solid #C4C4C4;
   }
 
   /* &.small, &.medium {

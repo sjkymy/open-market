@@ -7,15 +7,12 @@ import { Form, InformMsg } from "../../../../components/style/informMsg.style";
 
 export default function LoginForm(props) {
   const navigate = useNavigate();
-  // const location = useLocation();
   const [idVal, setIDVal] = useState("");
   const [pwVal, setPwVal] = useState("");
   const [btnDisable, setBtnDisable] = useState(true)
   const [errorMsg, setErrorMsg] = useState(null)
   const loginType = props.loginType;
 
-  
-  
   const handleOnChange = (e) => {
     (e.target.type === "password") ?
       setPwVal(e.target.value) : setIDVal(e.target.value)
@@ -26,7 +23,7 @@ export default function LoginForm(props) {
       setBtnDisable(false) : setBtnDisable(true)
   }, [pwVal]);
 
-  const handleLogin = (e) => {
+  const handleLogin = () => {
     const LoginData = async() => {
       const loginData = {
         "username": idVal,
