@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
+const Loading = lazy(() => import("../pages/loading/Loading"));
 const Home = lazy(() => import("../pages/home/Home"));
 const Login = lazy(() => import('../pages/account/login/LoginMain'));
 const Join = lazy(() => import('../pages/account/join/JoinMain'));
@@ -11,7 +12,7 @@ const Cart = lazy(() => import("../pages/cart/Cart"));
 export default function Router() {
   return (
     <BrowserRouter>
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<Loading/>}>
       <Routes>
         <Route path="/" element = {<Home />}/>
         <Route path="/account/" element = {<Outlet />}>
@@ -21,8 +22,8 @@ export default function Router() {
         <Route path="/products/" element = {<Outlet />}>
           <Route path=":product_id" element = {<ProductDetail />}/>
         </Route>
-        <Route path="/order" element = {<Order/>} />
         <Route path="/cart" element = {<Cart />} />
+        <Route path="/order" element = {<Order/>} />
       </Routes>
     </Suspense>
     </BrowserRouter>
