@@ -24,6 +24,16 @@ export default function BuyCartBtn() {
     }
   };
 
+  // if (isLogin && count) {
+  //   handleOrder()
+  // } else if (!isLogin) {
+  //   moveLogin
+  // } else if (!count) {
+  //   alert("수량을 입력하세요.")
+  // } else {
+  //   moveLogin
+  // }
+
   // 로그인 체크. 안되어있다면 로그인 페이지로 이동.
   const moveLogin = () => {
     const alertMsg = window.confirm("로그인 이후 구매가 가능합니다.");
@@ -32,14 +42,10 @@ export default function BuyCartBtn() {
       navigate("/account/login")
     }
   };
-  // console.log(product);
-  // console.log(cartData.data?.results);
-  // console.log(cartData.data);
 
   // cart에 상품이 있는지 확인.
   const cartItems = cartData.data
   const productIdsInCart = cartItems?.results.map((cartItem) => cartItem.product_id);
-  console.log(productIdsInCart);
   console.log(cartData.data);
 
   // const isCartItemCheck = () => {
@@ -62,21 +68,41 @@ export default function BuyCartBtn() {
         "check": productIdsInCart.includes(product.product_id) ? "false" : "true",
       };
       const userToken = localStorage.getItem("Authorization");
-      try {
-        const response = await axios.post(
+      if(count === 0) {
+        alert("수량을 입력하세요");
+      } else {
+        axios.post(
           url,cartBodyData,
           {
             headers: {
               "Authorization": userToken,
             },
           },
-          
         )
-        console.log(response);
-        setShowModal(true);
-      } catch (error) {
-        console.log(error);
-      }
+        .then(response => {
+          console.log(response);
+          setShowModal(true);
+        })
+        .catch(error => {
+          console.log(error);
+        })
+      };
+
+      // try {
+      //   const response = await axios.post(
+      //     url,cartBodyData,
+      //     {
+      //       headers: {
+      //         "Authorization": userToken,
+      //       },
+      //     },
+          
+      //   );
+      //   console.log(response);
+      //   setShowModal(true);
+      // } catch (error) {
+      //   console.log(error);
+      // }
     };
     cartData();
   };
@@ -106,7 +132,7 @@ export default function BuyCartBtn() {
       >
         {productIdsInCart.includes(product.product_id) ? "이미 장바구니에 있는 상품입니다. 장바구니로 이동하시겠습니까?"
           : "장바구니에 상품이 담겼습니다. 장바구니로 이동하시겠습니까?"}
-        </Modal>)}
+      </Modal>)}
     </BtnGroup>
   );
 }
