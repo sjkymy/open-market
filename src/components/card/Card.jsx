@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom';
 import ProductImage from '../productImage/ProductImage';
 import StoreName from "../storeName/StoreName"
 import ProductName from '../productName/ProductName'

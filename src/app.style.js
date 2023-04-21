@@ -14,7 +14,6 @@ const GlobalStyles = createGlobalStyle`
 
     * {
         box-sizing: border-box;
-        color: var(--color-text);
     }
 
     .ir {

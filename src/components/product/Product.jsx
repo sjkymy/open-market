@@ -29,7 +29,10 @@ export default function Product() {
   !isloaded ? <div>로딩중...</div> :
     <MainEl>
       <ProductList>
-        {items.map((item) => <Card key={item.product_id} {...item}/>)}
+        {items.map((item) => <Card 
+          key={item.product_id} 
+          {...item}
+        />)}
       </ProductList>
     </MainEl>
   )

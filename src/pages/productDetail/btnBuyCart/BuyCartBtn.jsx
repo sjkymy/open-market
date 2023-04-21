@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import GetCartData from "../../cart/CartData";
+import GetCartData from "../../../hooks/cartData/CartData";
 import { AmountContext } from "../amount/Amount";
 import { Button } from "../../../components/button/Button";
 import Modal from "../../../components/modal/Modal";
@@ -24,16 +24,6 @@ export default function BuyCartBtn() {
     }
   };
 
-  // if (isLogin && count) {
-  //   handleOrder()
-  // } else if (!isLogin) {
-  //   moveLogin
-  // } else if (!count) {
-  //   alert("수량을 입력하세요.")
-  // } else {
-  //   moveLogin
-  // }
-
   // 로그인 체크. 안되어있다면 로그인 페이지로 이동.
   const moveLogin = () => {
     const alertMsg = window.confirm("로그인 이후 구매가 가능합니다.");
@@ -44,19 +34,9 @@ export default function BuyCartBtn() {
   };
 
   // cart에 상품이 있는지 확인.
-  const cartItems = cartData.data
+  const cartItems = cartData.data;
   const productIdsInCart = cartItems?.results.map((cartItem) => cartItem.product_id);
-  console.log(cartData.data);
-
-  // const isCartItemCheck = () => {
-  //   const cartDataItem = cartData.data?.results
-  //   const isCartItem = cartDataItem.filter((item) => item.product_id === product.product_id);
-  //   return isCartItem;
-  // };
-  // const isCartItemCheck = () => {
-  //   const isCartItem = cartData.data?.results;
-  //   return isCartItem
-  // }
+  // console.log(cartData.data);
   
   // cart에 상품 등록 API
   const handleAddCart = () => {
@@ -87,22 +67,6 @@ export default function BuyCartBtn() {
           console.log(error);
         })
       };
-
-      // try {
-      //   const response = await axios.post(
-      //     url,cartBodyData,
-      //     {
-      //       headers: {
-      //         "Authorization": userToken,
-      //       },
-      //     },
-          
-      //   );
-      //   console.log(response);
-      //   setShowModal(true);
-      // } catch (error) {
-      //   console.log(error);
-      // }
     };
     cartData();
   };
