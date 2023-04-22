@@ -12,6 +12,7 @@ export default function BuyCartBtn() {
   const navigate = useNavigate();
   const location = useLocation();
   const cartData = GetCartData();
+  // const [sendProductData, setSendProductData] = useState([])
   const [showModal, setShowModal] = useState(false);
   const isLogin = localStorage.getItem("Authorization");
 
@@ -36,7 +37,7 @@ export default function BuyCartBtn() {
   // cart에 상품이 있는지 확인.
   const cartItems = cartData.data;
   const productIdsInCart = cartItems?.results.map((cartItem) => cartItem.product_id);
-  // console.log(cartData.data);
+  // console.log(cartItems);
   
   // cart에 상품 등록 API
   const handleAddCart = () => {
@@ -61,6 +62,7 @@ export default function BuyCartBtn() {
         )
         .then(response => {
           console.log(response);
+          // const newItemData = response.data;
           setShowModal(true);
         })
         .catch(error => {

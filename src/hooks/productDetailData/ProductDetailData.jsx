@@ -8,15 +8,15 @@ export default function GetProductDetailData(product_id) {
   useEffect(() => {
     const detailData = async () => {
       try {
-          const response = await axios.get(`https://openmarket.weniv.co.kr/products/${product_id}/`);
-          setProductDetailData(response.data);
-          console.log(response);
+        const response = await axios.get(`https://openmarket.weniv.co.kr/products/${product_id}/`);
+        setProductDetailData(response.data);
+        console.log(response);
       } catch (error) {
         console.log(error);
       }
     };
     detailData()
-  }, []);
+  }, [product_id]);
 
   return ( productDetailData )
 }

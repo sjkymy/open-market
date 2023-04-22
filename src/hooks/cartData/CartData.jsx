@@ -3,6 +3,7 @@ import axios from 'axios';
 
 export default function GetCartData() {
   const [cartData, setCartData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
@@ -17,7 +18,8 @@ export default function GetCartData() {
             }
           }
         );
-        setCartData(response);
+        setCartData(response.data);
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       };
@@ -25,5 +27,5 @@ export default function GetCartData() {
     getData();
   }, []);
 
-  return cartData
+  return [cartData, isLoading]
 }
