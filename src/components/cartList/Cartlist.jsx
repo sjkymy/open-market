@@ -1,11 +1,74 @@
+import { useState, useEffect } from 'react';
 import { CartList } from './cartList.style'
 
 export default function Cartlist({cart_item_id, is_active, my_cart, product_id, quantity, productDetailData}) {
+  const [count, setCount] = useState(quantity);
+  const [btnDisable, setBtnDisable] = useState(true);
+
   console.log(productDetailData);
-  
+
+  const productItem = () => {
+    for (let i = 0; i < productDetailData.length; i++) {
+      const item = productDetailData[i];
+      if (item.product_id === product_id) {
+        return {
+          image: item.image,
+          product_name: item.product_name,
+          store_name: item.store_name,
+          price: item.price,
+          shipping_fee: item.shipping_fee
+        };
+      }
+    }
+    return {
+      image: '', 
+      product_name: '',
+      store_name: '',
+      price: 0
+    };
+  };
+
+  const { image, product_name, store_name, price, shipping_fee } = productItem();
+
+  const handleChangeAmount = (type) => {
+    if (type === 'increment') {
+      setCount((prev) => prev + 1);
+    } else if (type === 'decrement') {
+      setCount((prev) => prev - 1);
+    }
+  };
+
+  useEffect(() => {
+    (count > 0) ? 
+    setBtnDisable(false) : 
+    setBtnDisable(true)
+  }, [count])
+
   return (
     <CartList>
-      <div>sdfsdf</div>
+      <div className='product_img'>
+        <img src={image} alt={product_name} />
+      </div>
+      <div className='product_txt'>
+        <p className='store_name'>{store_name}</p>
+        <p className='product_name'>{product_name}</p>
+        <p className='product_price'>{price?.toLocaleString()}원</p>
+      </div>
+      <div>
+        {shipping_fee ? `${shipping_fee?.toLocaleString()}원` : "무료배송"}
+      </div>
+      <div>
+        <button
+          onClick={() => handleChangeAmount('decrement')}
+          disabled={btnDisable}
+        >-
+        </button>
+        <input type="number" value={count} min="0" readOnly />
+        <button 
+        onClick={() => handleChangeAmount('increment')}
+        >+
+        </button>
+      </div>
     </CartList>
   )
 }

@@ -10,7 +10,7 @@ export default function GetProductDetailData(product_id) {
       try {
         const response = await axios.get(`https://openmarket.weniv.co.kr/products/${product_id}/`);
         setProductDetailData(response.data);
-        console.log(response);
+        // console.log(response);
       } catch (error) {
         console.log(error);
       }
