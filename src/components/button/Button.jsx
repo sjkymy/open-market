@@ -7,10 +7,12 @@ const Button = styled.button`
 
   // 로그아웃 버튼에 쓰임
   &.ms {
-    font-size: 18px;
-    padding: 10px 30px;
+    font-size: 16px;
+    padding: 10px 35px;
     border-radius: 5px;
   }
+
+
 
   // 중복확인
   &.medium {

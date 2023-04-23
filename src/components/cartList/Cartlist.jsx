@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import ProductInfo from './productInfo/ProductInfo';
+import Count from './count/Count';
+import ListPrice from './listPrice/ListPrice';
 import { CartList } from './cartList.style'
 
 export default function Cartlist({cart_item_id, is_active, my_cart, product_id, quantity, productDetailData}) {
-  const [count, setCount] = useState(quantity);
-  const [btnDisable, setBtnDisable] = useState(true);
+  const [countValue, setCountValue] = useState(quantity);
 
   const productItem = () => {
     for (let i = 0; i < productDetailData.length; i++) {
@@ -33,24 +34,15 @@ export default function Cartlist({cart_item_id, is_active, my_cart, product_id, 
     store_name, 
     price, 
     shipping_fee 
-  } = productItem();
+  } = productItem();  
 
-  const handleChangeAmount = (type) => {
-    if (type === 'increment') {
-      setCount((prev) => prev + 1);
-    } else if (type === 'decrement') {
-      setCount((prev) => prev - 1);
-    }
+  const handleCountChange = (count) => {
+    setCountValue(count);
   };
-
-  useEffect(() => {
-    (count > 0) ? 
-    setBtnDisable(false) : 
-    setBtnDisable(true)
-  }, [count])
 
   return (
     <CartList>
+      <button className="delete_btn"></button>
       <div className='product_check'>
         <input type="radio" />
       </div>
@@ -61,18 +53,13 @@ export default function Cartlist({cart_item_id, is_active, my_cart, product_id, 
         price = {price}
         shipping_fee = {shipping_fee}
       />
-      <div>
-        <button
-          onClick={() => handleChangeAmount('decrement')}
-          disabled={btnDisable}
-        >-
-        </button>
-        <input type="number" value={count} min="0" readOnly />
-        <button 
-        onClick={() => handleChangeAmount('increment')}
-        >+
-        </button>
-      </div>
+      <Count 
+        quantity={countValue} onCountChange={handleCountChange}
+      />
+      <ListPrice 
+        price = {price}
+        quantity={countValue}
+      />
     </CartList>
   )
 }
