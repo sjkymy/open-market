@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
+import ProductInfo from './productInfo/ProductInfo';
 import { CartList } from './cartList.style'
 
 export default function Cartlist({cart_item_id, is_active, my_cart, product_id, quantity, productDetailData}) {
   const [count, setCount] = useState(quantity);
   const [btnDisable, setBtnDisable] = useState(true);
-
-  console.log(productDetailData);
 
   const productItem = () => {
     for (let i = 0; i < productDetailData.length; i++) {
@@ -19,7 +18,7 @@ export default function Cartlist({cart_item_id, is_active, my_cart, product_id, 
           shipping_fee: item.shipping_fee
         };
       }
-    }
+    };
     return {
       image: '', 
       product_name: '',
@@ -28,7 +27,13 @@ export default function Cartlist({cart_item_id, is_active, my_cart, product_id, 
     };
   };
 
-  const { image, product_name, store_name, price, shipping_fee } = productItem();
+  const { 
+    image, 
+    product_name, 
+    store_name, 
+    price, 
+    shipping_fee 
+  } = productItem();
 
   const handleChangeAmount = (type) => {
     if (type === 'increment') {
@@ -46,17 +51,16 @@ export default function Cartlist({cart_item_id, is_active, my_cart, product_id, 
 
   return (
     <CartList>
-      <div className='product_img'>
-        <img src={image} alt={product_name} />
+      <div className='product_check'>
+        <input type="radio" />
       </div>
-      <div className='product_txt'>
-        <p className='store_name'>{store_name}</p>
-        <p className='product_name'>{product_name}</p>
-        <p className='product_price'>{price?.toLocaleString()}원</p>
-      </div>
-      <div>
-        {shipping_fee ? `${shipping_fee?.toLocaleString()}원` : "무료배송"}
-      </div>
+      <ProductInfo
+        image = {image}
+        product_name = {product_name}
+        store_name = {store_name}
+        price = {price}
+        shipping_fee = {shipping_fee}
+      />
       <div>
         <button
           onClick={() => handleChangeAmount('decrement')}
