@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import GetCartData from "../../../hooks/cartData/CartData";
+import GetCartData from "../../../hooks/cartData/GetCartData";
 import { AmountContext } from "../amount/Amount";
 import { Button } from "../../../components/button/Button";
 import Modal from "../../../components/modal/Modal";
@@ -11,7 +11,7 @@ export default function BuyCartBtn() {
   const { count, ...product } = useContext(AmountContext);
   const navigate = useNavigate();
   const location = useLocation();
-  const [cartData, isLoading] = GetCartData();
+  const [cartData] = GetCartData();
   const [showModal, setShowModal] = useState(false);
   const isLogin = localStorage.getItem("Authorization");
 
@@ -35,8 +35,6 @@ export default function BuyCartBtn() {
 
   // cart에 상품이 있는지 확인.
   const productIdsInCart = cartData && cartData.results?.map((cartItem) => cartItem.product_id);
-
-  console.log(productIdsInCart);
   
   // cart에 상품 등록 API
   const handleAddCart = () => {

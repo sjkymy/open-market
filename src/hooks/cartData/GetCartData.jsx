@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export default function GetCartData() {
+export default function useGetCartData() {
   const [cartData, setCartData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  
   useEffect(() => {
     const getData = async () => {
       const url = "https://openmarket.weniv.co.kr/cart/";

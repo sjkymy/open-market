@@ -1,6 +1,7 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
-import GetCartData from '../../hooks/cartData/CartData';
+import useGetCartData from '../../hooks/cartData/GetCartData';
+import useDeleteCartData from '../../hooks/cartData/DeleteCartData';
 import MenuBar from "../../components/menuBar/MenuBar";
 import CartListHeader from './cartListHeader/CartListHeader';
 import Cartlist from '../../components/cartList/Cartlist';
@@ -8,9 +9,8 @@ import { MainEl, Title, CartListUl } from "./cart.style"
 
 export default function Cart() {
   const [productDetailData, setProductDetailData] = useState([]);
-  
-  const [cartData, isLoading] = GetCartData();
-  const myCartIn = cartData.results;
+  const [cartData, isLoading] = useGetCartData();
+  const [myCartIn, setMyCartIn, handleDelete] = useDeleteCartData();
 
   useEffect(() => {
     let isMounted = true;
@@ -38,9 +38,9 @@ export default function Cart() {
     };
   }, [isLoading, cartData]);
 
-  const memoizedProductDetailData = useMemo(() => {
-    return productDetailData;
-  }, [productDetailData]);
+  useEffect(() => {
+    setMyCartIn(cartData.results);
+  }, [cartData]);
   
   return (
     <>
@@ -52,7 +52,8 @@ export default function Cart() {
           {myCartIn && myCartIn.map((item) => <Cartlist
             key={item.cart_item_id}
             {...item}
-            productDetailData = {memoizedProductDetailData}
+            productDetailData={productDetailData}
+            handleDelete={handleDelete}
           />)}
         </CartListUl>
       </MainEl>
