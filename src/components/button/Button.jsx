@@ -12,8 +12,6 @@ const Button = styled.button`
     border-radius: 5px;
   }
 
-
-
   // 중복확인
   &.medium {
     font-size: 14px;
@@ -43,6 +41,18 @@ const Button = styled.button`
     font-size: 18px;
     padding: 19px 66px;
     background-color: var(--color-dark);
+  }
+
+  &.total {
+    padding: 19px 65px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    background: #21BF48;
+    border-radius: 5px;
+    color: #fff;
+    display: flex;
+    margin: 0 auto;
   }
 
   &.L-button {

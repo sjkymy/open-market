@@ -5,13 +5,15 @@ import useDeleteCartData from '../../hooks/cartData/DeleteCartData';
 import MenuBar from "../../components/menuBar/MenuBar";
 import CartListHeader from './cartListHeader/CartListHeader';
 import Cartlist from '../../components/cartList/Cartlist';
-import { MainEl, Title, CartListUl } from "./cart.style"
+import { Button } from '../../components/button/Button';
+import { MainEl, Title, CartListUl, TotalInfo } from "./cart.style"
 
 export default function Cart() {
   const [productDetailData, setProductDetailData] = useState([]);
   const [cartData, isLoading] = useGetCartData();
   const [myCartIn, setMyCartIn, handleDelete] = useDeleteCartData();
 
+  // 상품 정보 불러오기(이미지, 가격 등을 위해서)
   useEffect(() => {
     let isMounted = true;
     const fetchProductDetails = async () => {
@@ -41,7 +43,7 @@ export default function Cart() {
   useEffect(() => {
     setMyCartIn(cartData.results);
   }, [cartData]);
-  
+  console.log(myCartIn);
   return (
     <>
       <MenuBar/>
@@ -56,6 +58,28 @@ export default function Cart() {
             handleDelete={handleDelete}
           />)}
         </CartListUl>
+        <TotalInfo>
+          <div className='product_price'>
+            <p className='money_txt'>총 상품 금액</p>
+            <p className='money_num'><strong>00</strong>원</p>
+          </div>
+          <div className='product_sale'>
+            <p className='money_txt'>상품 할인</p>
+            <p className='money_num'><strong>00</strong>원</p>
+          </div>
+          <div className='shipping_fee'>
+            <p className='money_txt'>배송비</p>
+            <p className='money_num'><strong>00</strong>원</p>
+          </div>
+          <div className='payment'>
+            <p className='money_txt total_txt'>결제 예정금액</p>
+            <p className='total_num'><strong className='total'>00</strong>원</p>
+          </div>
+        </TotalInfo>
+        <Button 
+          className='total'
+        >주문하기
+        </Button>
       </MainEl>
     </>
   )

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const useDeleteCartData = () => {
+export default function useDeleteCartData() {
   const [myCartIn, setMyCartIn] = useState([]);
 
   const handleDelete = async (cart_item_id) => {
@@ -24,5 +24,3 @@ const useDeleteCartData = () => {
 
   return [myCartIn, setMyCartIn, handleDelete];
 };
-
-export default useDeleteCartData;
