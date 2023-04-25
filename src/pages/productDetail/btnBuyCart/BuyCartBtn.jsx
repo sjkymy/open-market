@@ -58,8 +58,6 @@ export default function BuyCartBtn() {
           },
         )
         .then(response => {
-          console.log(response);
-          // const newItemData = response.data;
           setShowModal(true);
         })
         .catch(error => {
@@ -75,8 +73,7 @@ export default function BuyCartBtn() {
       <Button 
       className="large" 
       onClick={isLogin ? handleOrder : moveLogin}
-      >
-        바로구매
+      >바로구매
       </Button>
       <Button 
         className="dark large"
