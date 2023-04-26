@@ -1,10 +1,6 @@
-import {
-  ShippingInfoTitle,
-  ShippingList,
-  ShippingLabel,
-} from "./shippingClass.style";
+import { ShippingInfoTitle, ShippingList, ShippingLabel } from "./shippingClass.style";
 
-export default function ShippingClass() {
+export default function ShippingClass({shippingValue, handleOnChange}) {
   return (
     <>
       <ShippingInfoTitle>배송지 정보</ShippingInfoTitle>
@@ -15,7 +11,9 @@ export default function ShippingClass() {
               수령인
               <input
                 type="text"
-                id="ordererName"
+                id="shippingName"
+                value={shippingValue.shippingName}
+                onChange={handleOnChange}
                 className="inp_orderer"
                 required
               />
@@ -26,7 +24,9 @@ export default function ShippingClass() {
               휴대폰
               <input
                 type="number"
-                id="ordererPhone"
+                id="shippingPhone"
+                value={shippingValue.shippingPhone}
+                onChange={handleOnChange}
                 className="inp_orderer"
                 required
               />
@@ -37,7 +37,9 @@ export default function ShippingClass() {
               배송주소
               <input
                 type="text"
-                id="ordererEmail"
+                id="shippingAddress"
+                value={shippingValue.shippingAddress}
+                onChange={handleOnChange}
                 className="inp_orderer"
                 required
               />
@@ -48,7 +50,9 @@ export default function ShippingClass() {
               배송 메시지
               <input
                 type="text"
-                id="ordererEmail"
+                id="shippingMsg"
+                value={shippingValue.shippingMsg}
+                onChange={handleOnChange}
                 className="inp_orderer"
                 required
               />
@@ -58,4 +62,4 @@ export default function ShippingClass() {
       </form>
     </>
   );
-}
+};

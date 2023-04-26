@@ -8,7 +8,6 @@ export default function OrderList({count, product_id
   
   
   if (type === "direct_order") {
-    console.log(type);
     return (
       <OrderListLi>
         <div className='product_img'>

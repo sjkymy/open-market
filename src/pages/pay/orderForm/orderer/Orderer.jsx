@@ -1,6 +1,8 @@
 import { OrdererInfoTitle, OrdererList, OrdererLabel } from "./orderer.style";
 
-export default function Orderer() {
+export default function Orderer({orderValue, handleOnChange}) {
+
+
   return (
     <>
       <OrdererInfoTitle>주문자 정보</OrdererInfoTitle>
@@ -12,8 +14,9 @@ export default function Orderer() {
               <input
                 type="text"
                 id="ordererName"
+                value={orderValue.orderName}
+                onChange={handleOnChange}
                 className="inp_orderer"
-                required
               />
             </OrdererLabel>
           </OrdererList>
@@ -23,8 +26,9 @@ export default function Orderer() {
               <input
                 type="number"
                 id="ordererPhone"
+                value={orderValue.orderPhone}
+                onChange={handleOnChange}
                 className="inp_orderer"
-                required
               />
             </OrdererLabel>
           </OrdererList>
@@ -34,8 +38,9 @@ export default function Orderer() {
               <input
                 type="email"
                 id="ordererEmail"
+                value={orderValue.orderEmail}
+                onChange={handleOnChange}
                 className="inp_orderer"
-                required
               />
             </OrdererLabel>
           </OrdererList>

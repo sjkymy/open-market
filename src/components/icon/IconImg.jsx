@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Button } from "../button/Button";
 import shoppinCartIcon from "../../assets/images/icon-shopping-cart.png";
 import userIcon from "../../assets/images/icon-user.png"
@@ -7,6 +7,13 @@ import {IconDiv, ImgIcon, IconName} from "./iconImg.style"
 
 export default function IconImg() {
     let isAuthorized = localStorage.getItem("Authorization");
+    const navigate = useNavigate();
+
+    const needLogin = () => {
+      isAuthorized ? 
+        navigate("/cart") :
+        navigate("/account/login")
+    }
 
     const handleLogout = () => {
       const logoutData = async () => {
@@ -24,24 +31,30 @@ export default function IconImg() {
 
   return (
     <IconDiv>
-      <Link to="/cart">
+      <div 
+      onClick={needLogin}
+      >
         <ImgIcon src={shoppinCartIcon} alt="장바구니" />
         <IconName>장바구니</IconName>
-      </Link>
+      </div>
       {
         !isAuthorized ?
         null : 
-        <Link to="/cart">
+        <div
+          onClick={() => navigate("/cart")}
+        >
           <ImgIcon src={userIcon} alt="마이페이지" />
           <IconName>마이페이지</IconName>
-        </Link>
+        </div>
       }
       {
         !isAuthorized ? 
-        <Link to="/account/login">
+        <div
+          onClick={() => navigate("/account/login")}
+        >
           <ImgIcon src={userIcon} alt="로그인" />
           <IconName>로그인</IconName>
-        </Link> : 
+        </div> : 
         <Button className='ms' onClick={handleLogout}>로그아웃</Button>
       }
 

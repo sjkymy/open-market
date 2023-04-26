@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+const FinalInfoArticle = styled.article `
+  margin-left: 40px;
+`
+
 const FinalInfoTitle  = styled.h4 `
   font-weight: 500;
   font-size: 24px;
@@ -46,15 +50,4 @@ const FinalInfoList = styled.li `
   }
 `
 
-const PayBtnDiv = styled.div `
-display: inline-block;
-  margin-top: 10px;
-  background: #F2F2F2;
-  text-align: center;
-  padding-top: 30px;
-  #agree {
-    /* margin-top: 30px  */
-  }
-`
-
-export {FinalInfoTitle, FinalInfoDiv, FinalInfoUl, FinalInfoList, PayBtnDiv}
+export {FinalInfoArticle, FinalInfoTitle, FinalInfoDiv, FinalInfoUl, FinalInfoList}
