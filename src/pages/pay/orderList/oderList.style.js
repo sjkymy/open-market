@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
-const OrderListUl = styled.ul `
+const OrderListLi = styled.li `
     width: 1280px;
     padding: 8px 8px 18px;
     display: flex;
     border-bottom: 1px solid #C4C4C4;
-    li {
+    div {
     > img {
         width: 104px;
         height: 104px;
@@ -60,4 +60,4 @@ const OrderListUl = styled.ul `
     }
 `
 
-export {OrderListUl}
+export {OrderListLi}

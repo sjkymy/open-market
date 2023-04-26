@@ -20,7 +20,7 @@ export default function BuyCartBtn() {
     if (count === 0) {
       alert("수량을 입력하세요");
     } else {
-      navigate("/order", { state: { count, product } });
+      navigate("/order", { state: { type:"direct_order", count, product } });
     }
   };
 

@@ -3,7 +3,7 @@ import ProductInfo from './productInfo/ProductInfo';
 import Count from './count/Count';
 import ListPrice from './listPrice/ListPrice';
 import Modal from "../../../components/modal/Modal";
-import { CartList } from './cartList.style'
+import { CartListLi } from './cartList.style'
 
 export default function Cartlist({cart_item_id, is_active, my_cart, product_id, quantity, productDetailData, handleDelete}) {
   const [countValue, setCountValue] = useState(quantity);
@@ -37,7 +37,7 @@ export default function Cartlist({cart_item_id, is_active, my_cart, product_id, 
   };
 
   return (
-    <CartList>
+    <CartListLi>
       <button 
         className="delete_btn" 
         onClick={() => {
@@ -55,11 +55,16 @@ export default function Cartlist({cart_item_id, is_active, my_cart, product_id, 
         shipping_fee={shipping_fee}
       />
       <Count 
-        quantity={countValue} onCountChange={handleCountChange}
+        quantity={countValue} 
+        onCountChange={handleCountChange}
       />
       <ListPrice 
-        price={price}
         quantity={countValue}
+        price={price}
+        image={image}
+        product_name={product_name}
+        store_name={store_name}
+        shipping_fee={shipping_fee}
       />
       {showModal && (<Modal
         closeText={"아니요"}
@@ -74,6 +79,6 @@ export default function Cartlist({cart_item_id, is_active, my_cart, product_id, 
       >
         {"상품을 삭제하시겠습니까?"}
       </Modal>)}
-    </CartList>
+    </CartListLi>
   )
-}
+};

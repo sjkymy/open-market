@@ -12,6 +12,10 @@ const Title = styled.h2 `
     text-align: center;
 `
 
+const OrderListUl = styled.ul `
+
+`
+
 const TotalPriceTxt = styled.p `
     font-size: 18px;
     font-weight: bold;
@@ -25,4 +29,4 @@ const TotalPriceTxt = styled.p `
     }
 `
 
-export {MainEl, Title, TotalPriceTxt}
+export {MainEl, Title, OrderListUl, TotalPriceTxt}

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import closeIcon from "../../../assets/images/icon-close.svg"
 
-const CartList = styled.li `
+const CartListLi = styled.li `
   padding: 20px 0;
   border: 2px solid #E0E0E0;
   border-radius: 10px;
@@ -31,4 +31,4 @@ const CartList = styled.li `
   }
 `
 
-export { CartList }
+export { CartListLi }

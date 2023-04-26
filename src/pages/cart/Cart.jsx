@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import useGetCartData from '../../hooks/cartData/GetCartData';
 import useDeleteCartData from '../../hooks/cartData/DeleteCartData';
 import MenuBar from "../../components/menuBar/MenuBar";
@@ -13,6 +14,7 @@ export default function Cart() {
   const [productDetailData, setProductDetailData] = useState([]);
   const [cartData, isLoading] = useGetCartData();
   const [myCartIn, setMyCartIn, handleDelete] = useDeleteCartData();
+  const navigate = useNavigate()
 
   // 상품 정보 불러오기(이미지, 가격 등을 위해서)
   useEffect(() => {
@@ -44,7 +46,7 @@ export default function Cart() {
   useEffect(() => {
     setMyCartIn(cartData.results);
   }, [cartData]);
-  
+
   return (
     <>
       <MenuBar/>
@@ -65,6 +67,9 @@ export default function Cart() {
         />
         <Button 
           className='total'
+          onClick={
+            () => {navigate("/order", {state: { type:"cart_order", productDetailData, myCartIn }})}
+          }
         >주문하기
         </Button>
       </MainEl>
