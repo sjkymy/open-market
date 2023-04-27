@@ -11,7 +11,7 @@ export default function usePayment(type, totalPrice, shippingName, shippingPhone
           url,
           {
             headers: {
-              Authorization: userToken,
+              "Authorization": userToken,
             }
           },
           {

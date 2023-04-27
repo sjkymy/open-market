@@ -45,10 +45,10 @@ export default function FinalInfo({selectedOption, shippingValue}) {
             </FinalInfoList>
           </FinalInfoUl>
           <PayBtn 
+            type={type}
             count={count}
             product={product}
             totalPrice={totalPrice}
-            type={type}
             selectedOption={selectedOption}
             shippingValue={shippingValue}
           />

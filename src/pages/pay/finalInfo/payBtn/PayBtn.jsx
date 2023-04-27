@@ -4,7 +4,7 @@ import axios from 'axios';
 import { Button } from '../../../../components/button/Button';
 import { PayBtnDiv } from './payBtn.style';
 
-export default function PayBtn({type, totalPrice, selectedOption, shippingValue}) {
+export default function PayBtn({type, count, product, totalPrice, selectedOption, shippingValue}) {
   const [isAgree, setisAgree] = useState(false)
   const handleCheck = (e) => {
     if (e.target.checked) {
@@ -13,9 +13,8 @@ export default function PayBtn({type, totalPrice, selectedOption, shippingValue}
       setisAgree(false)
     };
   };
-  console.log(type);
-  // console.log(typeof(shippingValue.shippingPhone));
-  // console.log(selectedOption);
+  console.log(typeof(shippingValue.shippingPhone));
+  console.log(shippingValue.shippingPhone);
 
   const handleFinalPayment = () => {
     const handlePaymentData = async () => {
@@ -25,22 +24,21 @@ export default function PayBtn({type, totalPrice, selectedOption, shippingValue}
         const response = await axios.post(
           url,
           {
-            headers: {
-              Authorization: userToken,
-            }
-          },
-          {
-            // "product_id": Int,
-            // "quantity" : Int,
-            // "order_kind" : String,
-            "total_price": parseInt(totalPrice),
+            "product_id": parseInt(product.product_id),
+            "quantity" : parseInt(count),
             "order_kind" : type,
+            "total_price": parseInt(totalPrice),
             "receiver": shippingValue.shippingName,
             "receiver_phone_number": shippingValue.shippingPhone,
             "address": shippingValue.shippingAddress,
             "address_message": shippingValue.shippingMsg,
             "payment_method": selectedOption,
-          }
+          },
+          {
+            headers: {
+              "Authorization": userToken,
+            }
+          },
         );
         console.log(response);
       } catch (error) {
