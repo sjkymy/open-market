@@ -8,12 +8,15 @@ export default function useDeleteCartData() {
     const url = `https://openmarket.weniv.co.kr/cart/${cart_item_id}`;
     const userToken = localStorage.getItem("Authorization");
     try {
-      const response = await axios.delete(url, {
-        headers: {
-          Authorization: userToken,
-        },
-      });
-      console.log("상품 삭제 성공!");
+      const response = await axios.delete(
+        url, 
+        {
+          headers: {
+            Authorization: userToken,
+          },
+        }
+      );
+      console.log(response);
       setMyCartIn((prev) =>
         prev.filter((item) => item.cart_item_id !== cart_item_id)
       );

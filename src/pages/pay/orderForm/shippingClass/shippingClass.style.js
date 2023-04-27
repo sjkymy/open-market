@@ -26,5 +26,8 @@ const ShippingLabel = styled.label `
     padding: 0 10px;
   }
 `
+const FinalDiv = styled.div `
+  display: flex;
+`
 
-export {ShippingInfoTitle, ShippingList, ShippingLabel}
+export {ShippingInfoTitle, ShippingList, ShippingLabel, FinalDiv}

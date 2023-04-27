@@ -9,8 +9,8 @@ const ShippingTitle = styled.h3 `
   margin-bottom: 40px;
 `
 
-const FinalDiv = styled.div `
-  display: flex;
-`
+// const FinalDiv = styled.div `
+//   display: flex;
+// `
 
-export { ShippingTitle, FinalDiv }
+export { ShippingTitle }

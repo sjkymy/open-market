@@ -1,33 +1,34 @@
 import axios from 'axios';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 
-export default function Payment(type) {
-  useEffect(() => {
-    const paymentData = async () => {
+export default function usePayment(type, totalPrice, shippingName, shippingPhone, shippingAddress, shippingMsg, selectedOption) {
+
+    const handlePaymentData = async () => {
       const url = "https://openmarket.weniv.co.kr/order/";
       const userToken = localStorage.getItem("Authorization");
       try {
         const response = await axios.post(
           url,
           {
-            "total_price": Int,
-            "order_kind" : {type},
-        
-            "receiver": String,
-            "receiver_phone_number": String,
-            "address": String,
-            "address_message": String,
-            "payment_method": String,
+            headers: {
+              Authorization: userToken,
+            }
+          },
+          {
+            "total_price": parseInt(totalPrice),
+            "order_kind" : type,
+            "receiver": shippingName,
+            "receiver_phone_number": shippingPhone,
+            "address": shippingAddress,
+            "address_message": shippingMsg,
+            "payment_method": selectedOption,
           }
-        )
+        );
+        console.log(response);
       } catch (error) {
         console.log(error);
       }
     };
-    paymentData()
-  },[]);
 
-  return (
-    <div>Payment</div>
-  )
-}
+  return {handlePaymentData}
+};

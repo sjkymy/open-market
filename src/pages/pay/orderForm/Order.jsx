@@ -1,8 +1,7 @@
 import { useState } from "react";
-import FinalInfo from "../finalInfo/FinalInfo";
-import MethodPayment from "./methodPayment/MethodPayment";
+// import MethodPayment from "./methodPayment/MethodPayment";
 import Orderer from "./orderer/Orderer";
-import { ShippingTitle, FinalDiv } from "./orderForm.style";
+import { ShippingTitle } from "./orderForm.style";
 import ShippingClass from "./shippingClass/ShippingClass";
 
 export default function Order() {
@@ -37,9 +36,6 @@ export default function Order() {
         shippingValue={{shippingName, shippingPhone, shippingAddress, shippingMsg}}
         handleOnChange={handleShippingChange}
       />
-      <FinalDiv>
-        <MethodPayment />
-      </FinalDiv>
     </section>
   );
 }

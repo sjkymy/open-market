@@ -3,7 +3,7 @@ import { ProductContext } from "../ProductPay";
 import PayBtn from "./payBtn/PayBtn";
 import { FinalInfoArticle, FinalInfoTitle, FinalInfoDiv, FinalInfoUl, FinalInfoList } from "./finalInfo.style";
 
-export default function FinalInfo() {
+export default function FinalInfo({selectedOption, shippingValue}) {
   const { type, count, product, productPrice, shippingFee } = useContext(ProductContext);
 
   if (type === "direct_order") {
@@ -44,12 +44,20 @@ export default function FinalInfo() {
               </span>
             </FinalInfoList>
           </FinalInfoUl>
-          <PayBtn />
+          <PayBtn 
+            count={count}
+            product={product}
+            totalPrice={totalPrice}
+            type={type}
+            selectedOption={selectedOption}
+            shippingValue={shippingValue}
+          />
         </FinalInfoDiv>
       </FinalInfoArticle>
     );
   };
   if (type === "cart_order") {
+    const totalPrice = shippingFee+productPrice;
     return (
       <FinalInfoArticle>
         <FinalInfoTitle>최종결제 정보</FinalInfoTitle>
@@ -78,12 +86,17 @@ export default function FinalInfo() {
               <span>- 결제금액</span>
               <span>
                 <strong className="pay-price">
-                  {(shippingFee+productPrice)?.toLocaleString()}원
+                  {totalPrice?.toLocaleString()}원
                 </strong>
               </span>
             </FinalInfoList>
           </FinalInfoUl>
-          <PayBtn />
+          <PayBtn 
+            totalPrice={totalPrice}
+            type={type}
+            selectedOption={selectedOption}
+            shippingValue={shippingValue}
+          />
         </FinalInfoDiv>
       </FinalInfoArticle>
     );

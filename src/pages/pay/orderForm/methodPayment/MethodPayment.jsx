@@ -3,12 +3,14 @@ import {PaymentTitle, PaymentForm, Label, RadioInput,
 } from "./methodPayment.style";
 import FinalInfo from "../../finalInfo/FinalInfo";
 
-export default function MethodPayment() {
+export default function MethodPayment({shippingValue}) {
   const [selectedOption, setSelectedOption] = useState("");
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
+
+  console.log();
 
   return (
     <>
@@ -62,7 +64,10 @@ export default function MethodPayment() {
         </Label>
       </PaymentForm>
     </div>
-    <FinalInfo/>
+    <FinalInfo
+      selectedOption={selectedOption}
+      shippingValue={shippingValue}
+    />
     </>
   );
 }

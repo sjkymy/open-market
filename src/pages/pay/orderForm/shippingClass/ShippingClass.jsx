@@ -1,4 +1,5 @@
-import { ShippingInfoTitle, ShippingList, ShippingLabel } from "./shippingClass.style";
+import MethodPayment from "../methodPayment/MethodPayment";
+import { ShippingInfoTitle, ShippingList, ShippingLabel, FinalDiv } from "./shippingClass.style";
 
 export default function ShippingClass({shippingValue, handleOnChange}) {
   return (
@@ -60,6 +61,11 @@ export default function ShippingClass({shippingValue, handleOnChange}) {
           </ShippingList>
         </ul>
       </form>
+        <FinalDiv>
+          <MethodPayment
+            shippingValue={shippingValue}
+          />
+        </FinalDiv>
     </>
   );
 };
