@@ -8,6 +8,7 @@ const Join = lazy(() => import('../pages/account/join/JoinMain'));
 const ProductDetail = lazy(() => import("../pages/productDetail/ProductDetail"))
 const Order = lazy(() => import("../pages/pay/ProductPay"))
 const Cart = lazy(() => import("../pages/cart/Cart"));
+const MyPage = lazy(() => import("../pages/myPage/MyPage"));
 
 export default function Router() {
   return (
@@ -24,6 +25,7 @@ export default function Router() {
         </Route>
         <Route path="/cart" element = {<Cart />} />
         <Route path="/order" element = {<Order/>} />
+        <Route path="/mypage" element = {<MyPage/>} />
       </Routes>
     </Suspense>
     </BrowserRouter>

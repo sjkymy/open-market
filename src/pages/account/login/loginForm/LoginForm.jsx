@@ -1,16 +1,13 @@
-import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios"
 import { Inp } from "../../../../components/userInput/Inp";
 import { Button } from "../../../../components/button/Button"
+import useLoginData from "../../../../hooks/login/LoginData";
 import { Form, InformMsg } from "../../../../components/style/informMsg.style";
 
 export default function LoginForm(props) {
-  const navigate = useNavigate();
   const [idVal, setIDVal] = useState("");
   const [pwVal, setPwVal] = useState("");
   const [btnDisable, setBtnDisable] = useState(true)
-  const [errorMsg, setErrorMsg] = useState(null)
   const loginType = props.loginType;
 
   const handleOnChange = (e) => {
@@ -23,36 +20,7 @@ export default function LoginForm(props) {
       setBtnDisable(false) : setBtnDisable(true)
   }, [pwVal]);
 
-  const handleLogin = () => {
-    const LoginData = async() => {
-      const loginData = {
-        "username": idVal,
-        "password": pwVal,
-        "login_type": loginType
-      };
-      try {
-        const response = await axios.post("https://openmarket.weniv.co.kr/accounts/login/", loginData
-        );
-        const userToken = response.data.token;
-        localStorage.setItem("Authorization", "JWT "+ userToken);
-        
-        // 로그인 이후 직전 페이지로 이동
-        const prevPath = localStorage.getItem('prevPath');
-        if (prevPath) {
-          navigate(prevPath);
-          localStorage.removeItem("prevPath");
-        } else {
-          navigate('/');
-        };
-      } catch (error) {
-        console.log(error);
-        if (error.response.status === 401) {
-          setErrorMsg("* 아이디 또는 비밀번호가 일치하지 않습니다.")
-        }
-      }
-    }
-    LoginData()
-  };
+  const [errorMsg, LoginData] = useLoginData(idVal, pwVal, loginType)
 
   return (
     <>
@@ -76,7 +44,7 @@ export default function LoginForm(props) {
           type="button"
           className="large"
           disabled={btnDisable}
-          onClick={handleLogin}
+          onClick={() => LoginData()}
         >로그인</Button>
       </Form>
     </>

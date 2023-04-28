@@ -4,6 +4,7 @@ import ProductName from '../productName/ProductName'
 import ProductPrice from '../productPrice/ProductPrice';
 import { useNavigate } from 'react-router-dom';
 import { ImgProduct, CardList } from "./card.style";
+
 export default function Card({image, store_name, product_name, price, product_id}) {
 
   const productId = product_id;
@@ -11,7 +12,6 @@ export default function Card({image, store_name, product_name, price, product_id
   const handleNavigate = (() => {
     navigate(`/products/${productId}`)
   })
-
 
   return (
       <CardList onClick={handleNavigate}>
