@@ -50,7 +50,8 @@ export default function BuyCartBtn() {
         alert("수량을 입력하세요");
       } else {
         axios.post(
-          url,cartBodyData,
+          url,
+          cartBodyData,
           {
             headers: {
               "Authorization": userToken,
@@ -61,7 +62,9 @@ export default function BuyCartBtn() {
           setShowModal(true);
         })
         .catch(error => {
-          console.log(error);
+          if(error.response.status === 406) {
+            alert("해당 상품은 품절입니다.")
+          }
         })
       };
     };

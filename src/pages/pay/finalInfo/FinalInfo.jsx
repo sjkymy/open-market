@@ -10,7 +10,6 @@ export default function FinalInfo({selectedOption, shippingValue}) {
     const directShippingFee = product.shipping_fee ? product.shipping_fee : 0;
     const directProductPrice = count * product.price;
     const totalPrice = directProductPrice + directShippingFee;
-  
     return (
       <FinalInfoArticle>
         <FinalInfoTitle>최종결제 정보</FinalInfoTitle>

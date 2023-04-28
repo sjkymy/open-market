@@ -14,13 +14,13 @@ export default function MenuBar() {
       <MenuNav>
         <Logo>
           <img 
-          src={logoImg} 
-          alt="로고 이미지" 
-          onClick={handleMoveHome}
+            src={logoImg} 
+            alt="로고 이미지" 
+            onClick={handleMoveHome}
           />
           <Inp 
             type="text" 
-            className='search' 
+            className="search"
             placeholder="상품을 검색해보세요." 
           />
         </Logo>

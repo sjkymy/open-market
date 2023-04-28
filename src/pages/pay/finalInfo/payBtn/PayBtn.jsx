@@ -1,6 +1,5 @@
 import { useState } from 'react';
-import axios from 'axios';
-// import usePayment from '../../../../hooks/payment/Payment';
+import useHandlePaymentData from '../../../../hooks/payment/PaymentData'; 
 import { Button } from '../../../../components/button/Button';
 import { PayBtnDiv } from './payBtn.style';
 
@@ -13,40 +12,55 @@ export default function PayBtn({type, count, product, totalPrice, selectedOption
       setisAgree(false)
     };
   };
-  console.log(typeof(shippingValue.shippingPhone));
-  console.log(shippingValue.shippingPhone);
 
-  const handleFinalPayment = () => {
-    const handlePaymentData = async () => {
-      const url = "https://openmarket.weniv.co.kr/order/";
-      const userToken = localStorage.getItem("Authorization");
-      try {
-        const response = await axios.post(
-          url,
-          {
-            "product_id": parseInt(product.product_id),
-            "quantity" : parseInt(count),
-            "order_kind" : type,
-            "total_price": parseInt(totalPrice),
-            "receiver": shippingValue.shippingName,
-            "receiver_phone_number": shippingValue.shippingPhone,
-            "address": shippingValue.shippingAddress,
-            "address_message": shippingValue.shippingMsg,
-            "payment_method": selectedOption,
-          },
-          {
-            headers: {
-              "Authorization": userToken,
-            }
-          },
-        );
-        console.log(response);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    handlePaymentData();
-  }
+  const directBodyData = {
+    "product_id": parseInt(product?.product_id),
+    "quantity" : parseInt(count),
+    "order_kind" : type,
+    "total_price": parseInt(totalPrice),
+    "receiver": shippingValue.shippingName,
+    "receiver_phone_number": shippingValue.shippingPhone,
+    "address": shippingValue.shippingAddress,
+    "address_message": shippingValue.shippingMsg,
+    "payment_method": selectedOption,
+  };
+  const cartBodyData = {
+    "total_price": parseInt(totalPrice),
+    "order_kind" : type,
+    "receiver": shippingValue.shippingName,
+    "receiver_phone_number": shippingValue.shippingPhone,
+    "address": shippingValue.shippingAddress,
+    "address_message": shippingValue.shippingMsg,
+    "payment_method": selectedOption,
+  };
+
+  const [handlePaymentData] = useHandlePaymentData(type, directBodyData, cartBodyData)
+
+  // const handleFinalPayment = () => {
+  //   const handlePaymentData = async () => {
+  //     const url = "https://openmarket.weniv.co.kr/order/";
+  //     const userToken = localStorage.getItem("Authorization");
+  //     try {
+  //       const response = await axios.post(
+  //         url,
+  //         (type === "direct_order") ?
+  //         directBodyData :
+  //         (type === "cart_order") ?
+  //         cartBodyData :
+  //         null,
+  //         {
+  //           headers: {
+  //             "Authorization": userToken,
+  //           }
+  //         },
+  //       );
+  //       console.log(response);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   handlePaymentData();
+  // };
   
 
   return (
@@ -63,7 +77,11 @@ export default function PayBtn({type, count, product, totalPrice, selectedOption
       </label>
       <Button 
         className="L-button"
-        onClick={handleFinalPayment}
+        onClick={() => {
+          return isAgree ?
+          handlePaymentData() :
+          alert("개인정보 제공 동의란을 확인해주세요.")
+        }}
       >결제하기
       </Button>
     </PayBtnDiv>
