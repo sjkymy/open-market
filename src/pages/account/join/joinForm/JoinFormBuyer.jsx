@@ -21,12 +21,11 @@ export default function Join() {
     e.target.id === "joinId" && setIdval(e.target.value);
     e.target.id === "joinPw" && setPwVal(e.target.value);
     e.target.id === "joinPwCheck" && setPwCheckVal(e.target.value);
-    
-  })
+  });
   const handleNameChange = ((e) =>{
     e.target.id === "joinPhone" && setPhoneVal(e.target.value);
     e.target.id === "joinName" && setNameVal(e.target.value);
-  })
+  });
 
   const handleJoin = (e) => {
     e.preventDefault()

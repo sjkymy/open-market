@@ -18,7 +18,10 @@ export default function Cartlist({cart_item_id, is_active, my_cart, product_id, 
           product_name: item.product_name,
           store_name: item.store_name,
           price: item.price,
-          shipping_fee: item.shipping_fee
+          shipping_fee: item.shipping_fee,
+          stock: item.stock,
+          products_info: item.products_info,
+          shipping_method: item.shipping_method
         };
       }
     };
@@ -26,11 +29,15 @@ export default function Cartlist({cart_item_id, is_active, my_cart, product_id, 
       image: '', 
       product_name: '',
       store_name: '',
-      price: 0
+      price: 0,
+      shipping_fee: 0,
+      stock: "",
+      products_info: "",
+      shipping_method: ""
     };
   };
 
-  const { image, product_name, store_name, price, shipping_fee } = productItem(); 
+  const { image, product_name, store_name, price, shipping_fee, stock, products_info, shipping_method } = productItem(); 
 
   const handleCountChange = (count) => {
     setCountValue(count);
@@ -55,7 +62,8 @@ export default function Cartlist({cart_item_id, is_active, my_cart, product_id, 
         shipping_fee={shipping_fee}
       />
       <Count 
-        quantity={countValue} 
+        quantity={countValue}
+        productData={{product_name, price,  shipping_method, shipping_fee, stock, products_info}}
         onCountChange={handleCountChange}
       />
       <ListPrice 

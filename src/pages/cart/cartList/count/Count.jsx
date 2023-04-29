@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { CountDiv, AmountBtn, AmountInp } from "./count.style";
 
-export default function Count({ quantity, onCountChange }) {
+export default function Count({ quantity, productData, onCountChange }) {
   const [count, setCount] = useState(quantity);
   const [btnDisable, setBtnDisable] = useState(true);
 
@@ -20,6 +20,18 @@ export default function Count({ quantity, onCountChange }) {
 
     onCountChange(count);
   }, [count, onCountChange]);
+
+  console.log(quantity);
+  // const handleCountChange = () => {
+  //   const countData = async () => {
+  //     const url = 
+  //     try {
+  //       const response = await axios.put()
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  // }
 
   return (
     <CountDiv>
