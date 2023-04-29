@@ -63,7 +63,8 @@ export default function Cartlist({cart_item_id, is_active, my_cart, product_id, 
       />
       <Count 
         quantity={countValue}
-        productData={{product_name, price,  shipping_method, shipping_fee, stock, products_info}}
+        // productData={{product_name, price, shipping_method, shipping_fee, stock, products_info}}
+        cartItem={{cart_item_id, product_id, is_active}}
         onCountChange={handleCountChange}
       />
       <ListPrice 
