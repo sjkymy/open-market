@@ -10,6 +10,10 @@ export default function Amount({...product}) {
 
   const handleChangeAmount = (type) => {
     if (type === 'increment') {
+      if (count >= product.stock) {
+        alert("재고가 부족합니다.");
+        return;
+      }
       setCount((prev) => prev + 1);
     } else if (type === 'decrement') {
       setCount((prev) => prev - 1);
@@ -18,7 +22,7 @@ export default function Amount({...product}) {
 
   useEffect(() => {
     (count > 0) ? 
-    setBtnDisable(false) : 
+    setBtnDisable(false) :    
     setBtnDisable(true)
   }, [count])
 
@@ -32,7 +36,9 @@ export default function Amount({...product}) {
         </AmountBtn>
         <AmountInp type="number" value={count} min="0" readOnly />
         <AmountBtn 
-        onClick={() => handleChangeAmount('increment')}
+        onClick={() => {
+          handleChangeAmount('increment')
+        }}
         >+
         </AmountBtn>
       </AmountDiv>

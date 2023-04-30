@@ -1,15 +1,13 @@
-// import { useState, useEffect } from "react";
-// import axios from 'axios';
 import { useParams } from "react-router-dom";
-import GetProductDetailData from '../../hooks/productDetailData/ProductDetailData';
+import useProductDetailData from '../../hooks/productDetailData/ProductDetailData';
 import MenuBar from "../../components/menuBar/MenuBar";
 import { Img } from "../../components/productImage/productImage.style";
-import { MainEl, ProductInfoSection, ProductImage, ProductOeder, StoreName, ProductName, ProductPrice } from "./productDetail.style";
+import { MainEl, ProductInfoSection, ProductImage, ProductOeder, StoreName, ProductName, ProductPrice, ProductStock } from "./productDetail.style";
 import Amount from "./amount/Amount";
 
 export default function ProductDetail() {
   let { product_id } = useParams();
-  const productDetailData = GetProductDetailData(product_id)
+  const productDetailData = useProductDetailData(product_id);
   
   return (
     <>    
@@ -27,6 +25,9 @@ export default function ProductDetail() {
             <ProductPrice>
               {productDetailData.price?.toLocaleString()}원
             </ProductPrice>
+            <ProductStock>
+              남은 수량: <strong>{productDetailData.stock}</strong>개
+            </ProductStock>
             <Amount 
               {...productDetailData}
             />

@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
-// import { useParams } from "react-router-dom";
 
-export default function GetProductDetailData(product_id) {
+export default function useProductDetailData(product_id) {
   const [productDetailData, setProductDetailData] = useState([]);
   
   useEffect(() => {

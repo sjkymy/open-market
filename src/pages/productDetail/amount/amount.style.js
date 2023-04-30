@@ -4,7 +4,7 @@ const AmountDiv = styled.div `
   height: 110px;
   display: flex;
   align-items: center;
-  margin-top: 178px;
+  /* margin-top: 178px; */
   border-top: 2px solid #C4C4C4;
   border-bottom: 2px solid #C4C4C4;
 `

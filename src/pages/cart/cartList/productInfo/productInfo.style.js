@@ -29,10 +29,19 @@ const ProductInfoDiv = styled.div `
     .product_price {
       font-size: 16px;
       line-height: 20px;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
     .shipping_fee {
       color: #767676;
+    }
+    .product_stock {
+      font-size: 14px;
+      margin-top: 15px;
+      color: var(--color-text);
+      strong {
+        color: var(--color-primary);
+        font-weight: bold;
+      }
     }
   }
 `

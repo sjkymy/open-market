@@ -5,12 +5,16 @@ import useQuantityData from "../../../../hooks/quantityData/quantityData";
 import Loading from "../../../loading/Loading";
 import { Button } from "../../../../components/button/Button";
 
-export default function Count({ quantity, cartItem, onCountChange }) {
+export default function Count({ quantity, cartItem, onCountChange, stock }) {
   const [count, setCount] = useState(quantity);
   const [btnDisable, setBtnDisable] = useState(true);
   
   const handleChangeAmount = (type) => {
     if (type === 'increment') {
+      if (count >= stock) {
+        alert("재고가 부족합니다.");
+        return;
+      }
       setCount((prev) => prev + 1);
     } else if (type === 'decrement') {
       setCount((prev) => prev - 1);
