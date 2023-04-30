@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import { CountDiv, AmountBtn, AmountInp } from "./count.style";
+// import axios from "axios";
+import { CountWrapper, CountDiv, AmountBtn, AmountInp } from "./count.style";
+import useQuantityData from "../../../../hooks/quantityData/quantityData";
+import Loading from "../../../loading/Loading";
+import { Button } from "../../../../components/button/Button";
 
 export default function Count({ quantity, cartItem, onCountChange }) {
   const [count, setCount] = useState(quantity);
@@ -18,40 +21,22 @@ export default function Count({ quantity, cartItem, onCountChange }) {
     (count > 1) ? 
     setBtnDisable(false) : 
     setBtnDisable(true);
-  }, [count]);
 
-  useEffect(() => {
-    const handleCountChange = async () => {
-      const url = `https://openmarket.weniv.co.kr/cart/${cartItem.cart_item_id}/`;
-      const bodyData = {
-        "product_id": cartItem.product_id,
-        "quantity": parseInt(count),
-		    "is_active": cartItem.is_active
-      };
-      const userToken = localStorage.getItem("Authorization");
-      try {
-        const response = await axios.put(
-          url,
-          bodyData,
-          {
-            headers: {
-              "Authorization": userToken,
-            }
-          }
-        );
-        console.log(response);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    handleCountChange();
     onCountChange(count);
-  }, [count]);
+  }, [count, onCountChange]);
 
+  const [handleCountChange, isLoading] = useQuantityData(cartItem.cart_item_id, cartItem.product_id, count, cartItem.is_active)
+  
+  if (isLoading) {
+    return (<Loading/>)
+  } else {
   return (
+    <CountWrapper>
     <CountDiv>
       <AmountBtn
-        onClick={() => handleChangeAmount('decrement')}
+        onClick={() => {
+          handleChangeAmount('decrement')
+        }}
         disabled={btnDisable}
       >-</AmountBtn>
       <AmountInp 
@@ -61,8 +46,17 @@ export default function Count({ quantity, cartItem, onCountChange }) {
         readOnly
       />
       <AmountBtn 
-        onClick={() => handleChangeAmount('increment')}
+        onClick={() => {
+          handleChangeAmount('increment')
+        }}
       >+</AmountBtn>
+      
     </CountDiv>
-  )
+    <Button 
+      className="ms"
+      onClick={handleCountChange}
+    >수정
+    </Button>
+    </CountWrapper>
+  )}
 }

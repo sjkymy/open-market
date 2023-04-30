@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
-const CountDiv = styled.div `
+const CountWrapper = styled.div `
   width: 300px;
   text-align: center;
+`
+
+const CountDiv = styled.div `
+  margin-bottom: 20px;
 `
 
 const AmountBtn = styled.button `
@@ -25,4 +29,4 @@ const AmountInp = styled.input `
   }
 `
 
-export { CountDiv, AmountBtn, AmountInp }
+export { CountWrapper, CountDiv, AmountBtn, AmountInp }

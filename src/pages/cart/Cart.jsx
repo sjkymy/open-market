@@ -46,7 +46,7 @@ export default function Cart() {
   useEffect(() => {
     setMyCartIn(cartData.results);
   }, [cartData]);
-
+  
   return (
     <>
       <MenuBar/>
