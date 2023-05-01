@@ -9,11 +9,10 @@ export default function CartPrice({productDetailData, myCartIn}) {
     for (let j = 0; j < myCartIn.length; j++) {
       if (productDetailData[i].product_id === myCartIn[j].product_id) {
         productPrice = (myCartIn[j].quantity * productDetailData[i].price) + productPrice;
+        shippingFee = productDetailData[i].shipping_fee + shippingFee;
       }
     }
-    shippingFee = productDetailData[i].shipping_fee + shippingFee;
   };
-
   let totalPay = productPrice + shippingFee;
 
   return (
