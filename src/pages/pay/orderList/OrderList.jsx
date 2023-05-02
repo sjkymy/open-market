@@ -6,7 +6,6 @@ export default function OrderList({count, product_id
 
   const shippingFee = shipping_fee.toLocaleString();
   
-  
   if (type === "direct_order") {
     return (
       <OrderListLi>

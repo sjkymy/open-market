@@ -8,10 +8,10 @@ import { MainEl, Title, OrderListUl, TotalPriceTxt } from "./productPay.style";
 
 export const ProductContext = createContext(null);
 export default function ProductPay() {
-  // const [count, setCount] = useState([])
   const location = useLocation();
   const { state } = location;
 
+  // 장바구니를 거치지 않고 바로 구매할 경우.
   if (state.type === "direct_order") {
     const { type, count, product } = state;
     return (
@@ -37,20 +37,23 @@ export default function ProductPay() {
       </>
     );
   };
-  if (state.type === "cart_order") {
-    const { type, productDetailData, myCartIn } = state;
 
+  // 장바구니에서 구매할 경우
+  if (state.type === "cart_order") {
+    const { type, productData, myCartIn } = state;
     let productPrice = 0;
     let shippingFee = 0;
-    for(let i = 0; i < productDetailData.length; i++) {
+    for (let i = 0; i < productData.length; i++) {
       for (let j = 0; j < myCartIn.length; j++) {
-        if (productDetailData[i].product_id === myCartIn[j].product_id) {
-          productPrice = (myCartIn[j].quantity * productDetailData[i].price) + productPrice;
+        if (productData[i].product_id === myCartIn[j].product_id) {
+          productPrice = (myCartIn[j].quantity * productData[i].price) + productPrice;
+          shippingFee = productData[i].shipping_fee + shippingFee;
+        };
+        if (productData[i].product_id !== myCartIn[j].product_id) {
+          
         }
       }
-      shippingFee = productDetailData[i].shipping_fee + shippingFee;
     };
-
     let totalPay = productPrice + shippingFee;
     return (
       <>
@@ -59,7 +62,7 @@ export default function ProductPay() {
           <Title>주문/결제하기</Title>
           <OrderListHeader />
           <OrderListUl>
-            {productDetailData && productDetailData.map((item) =>
+            {productData && productData.map((item) =>
               <OrderList 
                 key={item.product_id}
                 {...item} 

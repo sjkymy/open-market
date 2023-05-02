@@ -5,13 +5,13 @@ import ListPrice from './listPrice/ListPrice';
 import Modal from "../../../components/modal/Modal";
 import { CartListLi } from './cartList.style'
 
-export default function Cartlist({cart_item_id, is_active, my_cart, product_id, quantity, productDetailData, handleDelete}) {
+export default function Cartlist({cart_item_id, is_active, my_cart, product_id, quantity, productData, handleDelete}) {
   const [countValue, setCountValue] = useState(quantity);
   const [showModal, setShowModal] = useState(false);
 
   const productItem = () => {
-    for (let i = 0; i < productDetailData.length; i++) {
-      const item = productDetailData[i];
+    for (let i = 0; i < productData.length; i++) {
+      const item = productData[i];
       if (item.product_id === product_id) {
         return {
           image: item.image,
@@ -79,7 +79,7 @@ export default function Cartlist({cart_item_id, is_active, my_cart, product_id, 
           setShowModal(false);
         }}
         modalConfirm={() => {
-          handleDelete(cart_item_id)
+          handleDelete(cart_item_id, product_id)
           setShowModal(false);
         }}
       >

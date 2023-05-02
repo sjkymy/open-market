@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import useGetCartData from '../../hooks/cartData/GetCartData';
@@ -11,9 +11,8 @@ import { MainEl, Title, CartListUl } from "./cart.style"
 import CartPrice from './cartPrice/CartPrice';
 
 export default function Cart() {
-  const [productDetailData, setProductDetailData] = useState([]);
   const [cartData, isLoading] = useGetCartData();
-  const [myCartIn, setMyCartIn, handleDelete] = useDeleteCartData();
+  const [myCartIn, setMyCartIn, productData, setProductData, handleDelete] = useDeleteCartData();
   const navigate = useNavigate()
 
   // 상품 정보 불러오기(이미지, 가격 등을 위해서)
@@ -32,7 +31,7 @@ export default function Cart() {
         }
       }
       if (isMounted) {
-        setProductDetailData(productDetails);
+        setProductData(productDetails);
       }
     };
     if (!isLoading) {
@@ -41,11 +40,11 @@ export default function Cart() {
     return () => {
       isMounted = false;
     };
-  }, [isLoading, cartData]);
+  }, [isLoading, cartData, setProductData]);
 
   useEffect(() => {
     setMyCartIn(cartData.results);
-  }, [cartData]);
+  }, [cartData, setMyCartIn]);
   
   return (
     <>
@@ -57,18 +56,18 @@ export default function Cart() {
           {myCartIn && myCartIn.map((item) => <Cartlist
             key={item.cart_item_id}
             {...item}
-            productDetailData={productDetailData}
+            productData={productData}
             handleDelete={handleDelete}
           />)}
         </CartListUl>
         <CartPrice 
-          productDetailData={productDetailData}
+          productDetailData={productData}
           myCartIn={myCartIn}
         />
         <Button 
           className='total'
           onClick={
-            () => {navigate("/order", {state: { type:"cart_order", productDetailData, myCartIn }})}
+            () => {navigate("/order", {state: { type:"cart_order", productData, myCartIn }})}
           }
         >주문하기
         </Button>

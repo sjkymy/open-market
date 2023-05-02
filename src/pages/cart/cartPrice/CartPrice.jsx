@@ -2,7 +2,6 @@ import React from 'react'
 import { TotalInfo } from "./cartPrice.style"
 
 export default function CartPrice({productDetailData, myCartIn}) {
-
   let productPrice = 0;
   let shippingFee = 0;
   for(let i = 0; i < productDetailData.length; i++) {
