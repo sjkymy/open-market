@@ -45,6 +45,12 @@ export default function Cart() {
   useEffect(() => {
     setMyCartIn(cartData.results);
   }, [cartData, setMyCartIn]);
+
+  const itemsInCart = () => {
+    return !cartData.count ? 
+      alert("장바구니가 비어있습니다.") :
+      navigate("/order", {state: { type:"cart_order", productData, myCartIn }})
+  };
   
   return (
     <>
@@ -66,9 +72,7 @@ export default function Cart() {
         />
         <Button 
           className='total'
-          onClick={
-            () => {navigate("/order", {state: { type:"cart_order", productData, myCartIn }})}
-          }
+          onClick={() => itemsInCart()}
         >주문하기
         </Button>
       </MainEl>

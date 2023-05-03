@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 // import axios from "axios";
 import { CountWrapper, CountDiv, AmountBtn, AmountInp } from "./count.style";
 import useQuantityData from "../../../../hooks/quantityData/quantityData";
-import Loading from "../../../loading/Loading";
+import Loading from "../../../../components/loading/Loading";
 import { Button } from "../../../../components/button/Button";
 
 export default function Count({ quantity, cartItem, onCountChange, stock }) {
