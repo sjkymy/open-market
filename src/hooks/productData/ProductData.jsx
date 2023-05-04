@@ -6,7 +6,10 @@ export default function useProductData() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
   const [count, setCount] = useState(null);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(() => {
+    const storedPage = localStorage.getItem("page");
+    return storedPage ? JSON.parse(storedPage) : 1;
+  });
 
     useEffect(() => {
     const getNextPageData = async () => {
@@ -24,7 +27,11 @@ export default function useProductData() {
       }
     };
     getNextPageData();
-  }, [page])
+  }, [page]);
+
+  useEffect(() => {
+    localStorage.setItem("page", JSON.stringify(page));
+  }, [page]);
 
   return {items, isLoaded, error, count, page, setPage}
-}
+};
