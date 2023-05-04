@@ -1,44 +1,30 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function ProductData() {
-  const [items, setItems] = useState([])
+export default function useProductData() {
+  const [items, setItems] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [error, setError] = useState(null)
-  // const [page, setPage] = useState(1);
+  const [error, setError] = useState(null);
+  const [count, setCount] = useState(null);
+  const [page, setPage] = useState(1);
 
-    // useEffect(() => {
-  //   const getNextPageData = async () => {
-  //     try {
-  //       const response = await axios.get(`https://openmarket.weniv.co.kr/products/?page=${page+1}`);
-  //       console.log(response);
-  //       const productData = response.data.results;
-  //       setItems((prevItems) => [...prevItems, ...productData]);
-  //       setPage((prevPage) => prevPage + 1);
-  //       setIsLoaded(true)
-  //     } catch (error) {
-  //       setError(error);
-  //       console.log(error);
-  //     }
-  //   };
-  //   getNextPageData();
-  // }, [])
-
-  useEffect(() => {
-    const getData = async () => {
+    useEffect(() => {
+    const getNextPageData = async () => {
       try {
-        const response = await axios.get("https://openmarket.weniv.co.kr/products/?page=1");
+        const response = await axios.get(`https://openmarket.weniv.co.kr/products/?page=${page}`);
         console.log(response);
         const productData = response.data.results;
+        const itemsCount = response.data.count;
         setItems(productData);
+        setCount(itemsCount)
         setIsLoaded(true)
       } catch (error) {
-        setError(error)
+        setError(error);
         console.log(error);
       }
     };
-    getData();
-  }, []);
+    getNextPageData();
+  }, [page])
 
-  return {items, isLoaded, error}
+  return {items, isLoaded, error, count, page, setPage}
 }
