@@ -11,7 +11,7 @@ export default function Card({image, store_name, product_name, price, product_id
   const navigate = useNavigate();
   const handleNavigate = (() => {
     navigate(`/products/${productId}`)
-  })
+  });
 
   return (
       <CardList onClick={handleNavigate}>
@@ -23,4 +23,4 @@ export default function Card({image, store_name, product_name, price, product_id
         <ProductPrice {...{price}}/>
       </CardList>
   )
-}
+};

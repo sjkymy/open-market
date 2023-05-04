@@ -28,7 +28,7 @@ export default function ProductData() {
     const getData = async () => {
       try {
         const response = await axios.get("https://openmarket.weniv.co.kr/products/?page=1");
-        // console.log(response);
+        console.log(response);
         const productData = response.data.results;
         setItems(productData);
         setIsLoaded(true)
@@ -36,9 +36,9 @@ export default function ProductData() {
         setError(error)
         console.log(error);
       }
-    }
-    getData()
-  }, [])
+    };
+    getData();
+  }, []);
 
   return {items, isLoaded, error}
 }

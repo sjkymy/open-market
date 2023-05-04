@@ -3,6 +3,7 @@ import Card from "../card/Card";
 import FailLoadData from "../failLoadData/FailLoadData";
 import { MainEl, ProductList } from "./product.style";
 import Loading from "../loading/Loading";
+import Paging from "../pagination/Paging";
 
 export default function Product() {
   const {items, isLoaded, error} = ProductData();
@@ -10,6 +11,7 @@ export default function Product() {
   return (
   (error !== null) ? <FailLoadData/> :
   !isLoaded ? <Loading /> :
+  <>
     <MainEl>
       <ProductList>
         {items.map((item) => <Card 
@@ -18,5 +20,7 @@ export default function Product() {
         />)}
       </ProductList>
     </MainEl>
+    <Paging />
+  </>
   )
 }
