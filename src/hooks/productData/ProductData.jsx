@@ -15,7 +15,6 @@ export default function useProductData() {
     const getNextPageData = async () => {
       try {
         const response = await axios.get(`https://openmarket.weniv.co.kr/products/?page=${page}`);
-        console.log(response);
         const productData = response.data.results;
         const itemsCount = response.data.count;
         setItems(productData);

@@ -6,12 +6,14 @@ export default function Paging({count, page, setPage}) {
   return (
     <Pagination
       activePage={page}
-      itemsCountPerPage={15}
       totalItemsCount={count}
-      pageRangeDisplayed={5}
-      prevPageText={"‹"}
-      nextPageText={"›"}
       onChange={setPage}
+      itemsCountPerPage={15}
+      pageRangeDisplayed={5}
+      prevPageText={"이전"}
+      nextPageText={"다음"}
+      firstPageText={"처음"}
+      lastPageText={"끝"}
     />
   )
 }
