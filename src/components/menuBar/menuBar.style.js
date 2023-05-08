@@ -22,10 +22,10 @@ const MenuNav = styled.nav `
 
 const Logo = styled.div `
   display: flex;
-  width: 124px;
-  height: 38px;
   margin-right: auto;
   img {
+    width: 124px;
+    height: 38px;
     cursor: pointer;
   }
 `
