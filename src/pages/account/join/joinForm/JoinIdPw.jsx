@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import UserInput from '../../../../components/userInput/UserInput';
-import { Inp } from '../../../../components/userInput/Inp';
+import { Inp, OverlapTest } from '../../../../components/userInput/Inp';
 import { Button } from '../../../../components/button/Button';
 import { InformMsg } from '../../../../components/style/informMsg.style';
 
@@ -11,7 +11,7 @@ export default function JoinIdPw({value, handleOnChange}) {
   const [informMsg, setInformMsg] = useState(null)
 
   useEffect(() => {
-    const idRegExp = /^[a-zA-z0-9]{4,12}$/;
+    const idRegExp = /^[a-zA-Z](?=.*[a-zA-Z])(?=.*[0-9]).{3,12}$/;
     idRegExp.test(value.idval) ? 
     setBtnDisable(false) : setBtnDisable(true)
   }, [value.idval]);
@@ -41,24 +41,25 @@ export default function JoinIdPw({value, handleOnChange}) {
   return (
     <>
       <UserInput inputId="joinId" label="아이디">
-        <Inp 
-          type="text"
-          id="joinId"
-          value={value.idval}
-          onChange={handleOnChange}
-          placeholder="영문자+숫자 조합으로 4~12자리를 입력하세요."
-          required
-        />
+        <OverlapTest>
+          <Inp 
+            type="text"
+            id="joinId"
+            value={value.idval}
+            onChange={handleOnChange}
+            placeholder="영문자+숫자 조합으로 4~12자리를 입력하세요."
+            required
+          />
+          <Button 
+            className="medium"
+            onClick={handleOverlapCheck}
+            disabled={btnDisable}
+          >중복확인
+          </Button>
+        </OverlapTest>
         <InformMsg className={className}>
           {informMsg}
         </InformMsg>
-        <Button 
-          className="medium"
-          onClick={handleOverlapCheck}
-          disabled={btnDisable}
-        >
-          중복확인
-        </Button>
       </UserInput>
       
       <UserInput inputId="joinPw" label="비밀번호">

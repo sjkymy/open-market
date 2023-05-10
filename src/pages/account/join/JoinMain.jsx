@@ -21,9 +21,9 @@ export default function JoinMain() {
         <TabMenu>
         {menuArr.map((el,index) => (
           <MenuList 
-          key={el.id}
-          className={index === currentTab ? "submenu focused" : "submenu"}
-          onClick={() => handleMenuSelect(index)}
+            key={el.id}
+            className={index === currentTab ? "submenu focused" : "submenu"}
+            onClick={() => handleMenuSelect(index)}
           >
             {el.name}
           </MenuList>

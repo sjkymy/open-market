@@ -15,10 +15,12 @@ const Button = styled.button`
   // 중복확인
   &.medium {
     font-size: 14px;
-    padding: 8px 40px;
-    border-radius: 30px;
+    /* padding: 17px 32px; */
+    width: 140px;
+    height: 54px;
+    border-radius: 5px;
     background-color: #767676;
-    margin-top: 10px;
+    margin: 0 0 0 12px;
     @media screen and (max-width: 768px) {
       padding: 8px 24px;
     }
@@ -35,6 +37,10 @@ const Button = styled.button`
       font-size: 14px;
       height: 44px;
     }
+  }
+
+  &.btn_join {
+    margin-top: 34px;
   }
 
   &.dark {
