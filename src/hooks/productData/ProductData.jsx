@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 // import imageCompression from "browser-image-compression";
-// import imageFileResizer from "react-image-file-resizer";
 
 export default function useProductData() {
   const [items, setItems] = useState([]);
