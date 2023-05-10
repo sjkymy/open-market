@@ -80,7 +80,7 @@ export default function Join() {
           {phoneError}
         </InformMsg>
         <Button
-          className="large btn_join"
+          className="large btn_in"
           onClick={handleJoin}
         > 가입하기
         </Button>

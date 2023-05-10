@@ -39,7 +39,7 @@ const Button = styled.button`
     }
   }
 
-  &.btn_join {
+  &.btn_in {
     margin-top: 34px;
   }
 

@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import useProductDetailData from '../../hooks/productDetailData/ProductDetailData';
 import MenuBar from "../../components/menuBar/MenuBar";
-import { Img } from "../../components/productImage/productImage.style";
-import { MainEl, ProductInfoSection, ProductImage, ProductOeder, StoreName, ProductName, ProductPrice, ProductStock } from "./productDetail.style";
+// import { Img } from "../../components/productImage/productImage.style";
+import { MainEl, ProductInfoSection, ProductImage, Image, ProductOeder, StoreName, ProductName, ProductPrice, ProductStock } from "./productDetail.style";
 import Amount from "./amount/Amount";
 
 export default function ProductDetail() {
@@ -15,7 +15,7 @@ export default function ProductDetail() {
       <MainEl>
         <ProductInfoSection>
           <ProductImage>
-            <Img src={productDetailData.image} alt={productDetailData.product_name} />
+            <Image src={productDetailData.image} alt={productDetailData.product_name} />
           </ProductImage>
           <ProductOeder>
             <StoreName>{productDetailData.store_name}</StoreName>

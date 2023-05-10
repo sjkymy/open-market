@@ -42,7 +42,7 @@ export default function LoginForm(props) {
         </InformMsg>
         <Button
           type="button"
-          className="large"
+          className="large btn_in"
           disabled={btnDisable}
           onClick={() => LoginData()}
         >로그인</Button>

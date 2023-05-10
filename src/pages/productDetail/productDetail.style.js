@@ -16,6 +16,11 @@ const ProductImage = styled.div `
   height: 600px;
 `
 
+const Image = styled.img `
+  width: 600px;
+  height: 600px;
+`
+
 const ProductOeder = styled.div `
   margin-left: 50px;
   width: 100%;
@@ -46,4 +51,4 @@ const ProductStock = styled.p `
   }
 `
 
-export { MainEl, ProductInfoSection, ProductImage, ProductOeder, StoreName, ProductName, ProductPrice, ProductStock }
+export { MainEl, ProductInfoSection, ProductImage, Image, ProductOeder, StoreName, ProductName, ProductPrice, ProductStock }
