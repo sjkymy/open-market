@@ -1,11 +1,8 @@
 import styled from "styled-components";
 
 const MainEl = styled.main `
-    /* display: flex;
-    justify-content: center; */
     width: 1280px;
     margin: 150px auto 70px;
-    /* padding-bottom: 156px; */
 `
 
 const ProductList = styled.ul `

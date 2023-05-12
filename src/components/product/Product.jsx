@@ -7,7 +7,7 @@ import Paging from "../pagination/Paging";
 
 export default function Product() {
   const {items, isLoaded, error, count, page, setPage} = useProductData();
-  
+  console.log(items);
   return (
   (error !== null) ? <FailLoadData/> :
   !isLoaded ? <Loading /> :
