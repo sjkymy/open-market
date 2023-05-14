@@ -48,7 +48,7 @@ export default function useProductData() {
 
         // 앞부분 이미지들을 먼저 화면에 보여주기 위한 코드
         const compressedProductData = await Promise.all(
-          productData.slice(0, 10).map(async (product) => {
+          productData.slice(0, 7).map(async (product) => {
             const compressedImage = await compressImage(product.image);
             return { ...product, image: compressedImage };
           })
@@ -59,7 +59,7 @@ export default function useProductData() {
         setIsLoaded(true);
 
         // 나머지 이미지들을 압축해서 추가로 보여주기 위한 코드
-        const restOfProductData = productData.slice(10);
+        const restOfProductData = productData.slice(7);
         const compressedRestOfProductData = await Promise.all(
           restOfProductData.map(async (product) => {
             const compressedImage = await compressImage(product.image);
