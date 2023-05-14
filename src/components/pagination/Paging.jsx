@@ -5,7 +5,11 @@ import "./paging.css";
 export default function Paging({count, page, setPage}) {
 
   useEffect(() => {
-    window.scrollTo(0, 200); // 페이지 변경 시 스크롤 위치를 맨 위로 이동
+    window.scrollTo({
+      top: 200,
+      left: 0,
+      behavior: "smooth" // 스크롤 이동을 부드럽게 하기 위한 옵션
+    }); // 페이지 변경 시 스크롤 위치를 맨 위로 이동
   }, [page]);
 
   return (
