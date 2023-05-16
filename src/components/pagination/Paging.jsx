@@ -6,7 +6,7 @@ export default function Paging({count, page, setPage}) {
 
   useEffect(() => {
     window.scrollTo({
-      top: 200,
+      top: 0,
       left: 0,
       behavior: "smooth" // 스크롤 이동을 부드럽게 하기 위한 옵션
     }); // 페이지 변경 시 스크롤 위치를 맨 위로 이동
