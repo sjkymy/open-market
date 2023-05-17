@@ -6,15 +6,33 @@
 <p>비밀번호 : qaqaqa123</p>
 
 + React를 기반으로 SPA 구현, 기능별 커스텀 훅 적용. 
++ Styled-Components로 React 컴포넌트 스타일 구현.
+<br/>
 
+### 로컬 환경에서 프로젝트 구동
+- ```git clone https://github.com/sjkymy/open-market.git .```
+- ```npm install```
+- ```npm start```
+---
+## 1. 기술 스택
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white">
+<img src="https://img.shields.io/badge/styled-components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white">
+
+---
+
+## 2. 페이지 미리보기(Preview)
+
++ <p>로그인</p>
+<span>
+  <img src="https://github.com/sjkymy/open-market/assets/112460273/132c0efc-a322-45cc-8b74-da12802c2b6f" width="50%" />
+</span>
   
-  
-  <span>
-    <img src="https://github.com/sjkymy/open-market/assets/112460273/132c0efc-a322-45cc-8b74-da12802c2b6f" width="30%" />
-  </span>
++ <p>홈 화면</p>
 
 
-## 트러블 슈팅
+---
+
+## 3. 트러블 슈팅
 장바구니 페이지의 UI를 구현하기 위해서 상품 데이터(상품 이름, 이미지, 스토어 이름 등) 값이 필요했다.<br />
 그러나 장바구니 목록을 보는 API(GET /cart/)에는 상품 수량과 상품 및 카트 id 관련 값들만 있어서 해당 값들은 받을 수 없었다.<br />
 상품 데이터는 상품 디테일 API(GET /products/<int:product_id>/)를 통해서 받아와야 했다.
