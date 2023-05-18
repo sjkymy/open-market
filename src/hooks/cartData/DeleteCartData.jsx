@@ -24,7 +24,6 @@ export default function useDeleteCartData() {
       setMyCartIn((prev) =>
         prev.filter((item) => item.cart_item_id !== cart_item_id)
       );
-      // window.location.reload();
     } catch (error) {
       console.log(error);
     }
