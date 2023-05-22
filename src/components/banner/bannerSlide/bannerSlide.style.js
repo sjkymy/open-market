@@ -39,10 +39,22 @@ const BannerSlideWrapper = styled.div `
   }
 `
 
-const Img = styled.img `
+const BannerImage = styled.img `
   height: 500px;
   width: 1280px;
   object-fit: cover;
+  transition: transform 0.5s ease;
 `
 
-export { BannerSlideWrapper, Img }
+const TextOverlay = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  color: white;
+  font-size: 24px;
+`;
+
+export { BannerSlideWrapper, BannerImage, TextOverlay }
