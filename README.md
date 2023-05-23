@@ -28,10 +28,24 @@
 </span>
   
 + <p>홈 화면</p>
+<span>
+  <img src="https://github.com/sjkymy/open-market/assets/112460273/8bb1685b-f5fc-4279-93e4-892c6575af9b" width="50%" />
+</span>
 
 + <p>상품 상세 페이지</p>
+<span>
+  <img src="https://github.com/sjkymy/open-market/assets/112460273/c31a265b-0933-418c-8a70-c81422377965" width="50%" />
+</span>
+
 + <p>장바구니</p>
+<span>
+  <img src="https://github.com/sjkymy/open-market/assets/112460273/1888e27f-c116-43a0-84fe-979ef5009878" width="50%" />
+</span>
+
 + <p>구매 페이지</p>
+<span>
+  <img src="https://github.com/sjkymy/open-market/assets/112460273/41d33849-bc96-4e70-a913-ba7423fffee9" width="50%" />
+</span>
 
 ---
 
