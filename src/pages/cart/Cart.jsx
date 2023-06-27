@@ -5,7 +5,7 @@ import useGetCartData from '../../hooks/cartData/GetCartData';
 import useDeleteCartData from '../../hooks/cartData/DeleteCartData';
 import MenuBar from "../../components/menuBar/MenuBar";
 import CartListHeader from './cartListHeader/CartListHeader';
-import Cartlist from './cartList/Cartlist';
+import CartList from './cartList/CartList';
 import { Button } from '../../components/button/Button';
 import { MainEl, Title, CartListUl } from "./cart.style"
 import CartPrice from './cartPrice/CartPrice';
@@ -59,7 +59,7 @@ export default function Cart() {
         <Title>장바구니</Title>
         <CartListHeader/>
         <CartListUl>
-          {myCartIn && myCartIn.map((item) => <Cartlist
+          {myCartIn && myCartIn.map((item) => <CartList
             key={item.cart_item_id}
             {...item}
             productData={productData}

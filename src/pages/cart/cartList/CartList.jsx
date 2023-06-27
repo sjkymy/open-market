@@ -5,7 +5,7 @@ import ListPrice from './listPrice/ListPrice';
 import Modal from "../../../components/modal/Modal";
 import { CartListLi } from './cartList.style'
 
-export default function Cartlist({cart_item_id, is_active, my_cart, product_id, quantity, productData, handleDelete}) {
+export default function CartList({cart_item_id, is_active, my_cart, product_id, quantity, productData, handleDelete}) {
   const [countValue, setCountValue] = useState(quantity);
   const [showModal, setShowModal] = useState(false);
 
