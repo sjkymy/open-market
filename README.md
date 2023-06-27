@@ -24,29 +24,22 @@
 ## 2. 페이지 미리보기(Preview)
 
 + <p>로그인</p>
-<span>
-  <img src="https://github.com/sjkymy/open-market/assets/112460273/132c0efc-a322-45cc-8b74-da12802c2b6f" width="50%" />
-</span>
-  
+  <img src="https://github.com/sjkymy/open-market/assets/112460273/2e7b80e3-1845-44a3-97aa-62736dfed6f8" width="50%" />
+
+
 + <p>홈 화면</p>
-<span>
-  <img src="https://github.com/sjkymy/open-market/assets/112460273/8bb1685b-f5fc-4279-93e4-892c6575af9b" width="50%" />
-</span>
+  <img src="https://github.com/sjkymy/open-market/assets/112460273/1de3ca98-c2e3-4f8a-b4db-a9bd9816d783" width="50%" />
+
 
 + <p>상품 상세 페이지</p>
-<span>
-  <img src="https://github.com/sjkymy/open-market/assets/112460273/c31a265b-0933-418c-8a70-c81422377965" width="50%" />
-</span>
+  <img src="https://github.com/sjkymy/open-market/assets/112460273/e2e4ede2-9463-498e-b055-57152a7d1e5e" width="50%" />
+
 
 + <p>장바구니</p>
-<span>
-  <img src="https://github.com/sjkymy/open-market/assets/112460273/1888e27f-c116-43a0-84fe-979ef5009878" width="50%" />
-</span>
+  <img src="https://github.com/sjkymy/open-market/assets/112460273/6771eccd-4fb5-4bf7-b642-53e933bb1350" width="50%" />
 
 + <p>구매 페이지</p>
-<span>
-  <img src="https://github.com/sjkymy/open-market/assets/112460273/41d33849-bc96-4e70-a913-ba7423fffee9" width="50%" />
-</span>
+  <img src="https://github.com/sjkymy/open-market/assets/112460273/41d1ad14-4774-4056-8c00-82eb49eddb3d" width="50%" />
 
 ---
 
