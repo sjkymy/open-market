@@ -34,34 +34,7 @@ export default function PayBtn({type, count, product, totalPrice, selectedOption
     "payment_method": selectedOption,
   };
 
-  const [handlePaymentData] = useHandlePaymentData(type, directBodyData, cartBodyData)
-
-  // const handleFinalPayment = () => {
-  //   const handlePaymentData = async () => {
-  //     const url = "https://openmarket.weniv.co.kr/order/";
-  //     const userToken = localStorage.getItem("Authorization");
-  //     try {
-  //       const response = await axios.post(
-  //         url,
-  //         (type === "direct_order") ?
-  //         directBodyData :
-  //         (type === "cart_order") ?
-  //         cartBodyData :
-  //         null,
-  //         {
-  //           headers: {
-  //             "Authorization": userToken,
-  //           }
-  //         },
-  //       );
-  //       console.log(response);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   handlePaymentData();
-  // };
-  
+  const [handlePaymentData] = useHandlePaymentData(type, directBodyData, cartBodyData)  
 
   return (
     <>
