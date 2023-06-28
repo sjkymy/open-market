@@ -2,9 +2,9 @@
 ***React를 사용하여 상품 등록, 결제, 상품에 대한 CRUD를 직접 구현한 개인 프로젝트.*** <br />
 ***판매자와 구매자를 구별하여 판매자가 상품을 등록, 판매하며 구매자는 구매하는 서비스.*** (현재는 구매자 버전만 구현되어 있음) <br />
 
-
-<p>아이디 : abcdefg123</p>
-<p>비밀번호 : qaqaqa123</p>
+배포 주소: https://admirable-squirrel-6b0f00.netlify.app <br />
+아이디 : abcdefg123 <br />
+비밀번호 : qaqaqa123
 
 + React를 기반으로 SPA 구현, 기능별 커스텀 훅 적용. 
 + Styled-Components로 React 컴포넌트 스타일 구현.
