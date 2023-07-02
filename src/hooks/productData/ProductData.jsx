@@ -1,16 +1,12 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-// import imageCompression from "browser-image-compression";
 
 export default function useProductData() {
   const [items, setItems] = useState([]);
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState(null);
   const [count, setCount] = useState(null);
-  const [page, setPage] = useState(() => {
-    const storedPage = localStorage.getItem("page");
-    return storedPage ? JSON.parse(storedPage) : 1;
-  });
+  const [page, setPage] = useState(JSON.parse(localStorage.getItem("page")) || 1);
 
   useEffect(() => {
     const getNextPageData = async () => {
